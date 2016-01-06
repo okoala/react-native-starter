@@ -1,0 +1,59 @@
+{
+  "name": "RNStarter",
+  "version": "0.0.1",
+  "private": true,
+  "jest": {
+    "scriptPreprocessor": "./node_modules/babel-jest",
+    "setupEnvScriptFile": "./node_modules/react-native/jestSupport/env.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ],
+    "unmockedModulePathPatterns": [
+      "promise",
+      "source-map",
+      "key-mirror",
+      "immutable",
+      "fetch",
+      "redux",
+      "redux-thunk",
+      "fbjs"
+    ],
+    "verbose": true,
+    "testPathDirs": [
+      "src/"
+    ]
+  },
+  "scripts": {
+  	"test": "rm -rf ./node_modules/jest-cli/.haste_cache && jest ",
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "react-native": "^0.18.0-rc",
+    "react-redux": "^3.1.0",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0",
+    "regenerator": "^0.8.42",
+    "tcomb-form-native": "^0.3.0",
+    "underscore": "^1.8.3",
+    "validate.js": "^0.9.0",
+    "immutable": "^3.7.5",
+    "key-mirror": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-jest": "^6.0.1",
+    "docker": "^0.2.14",
+    "istanbul": "gotwarlost/istanbul#source-map",
+    "jest-cli": "^0.8.2",
+    "react": "^0.14.3",
+    "react-addons-test-utils": "^0.14.3"
+  }
+}
