@@ -33,19 +33,23 @@
     ]
   },
   "scripts": {
-  	"test": "rm -rf ./node_modules/jest-cli/.haste_cache && jest ",
+    "test": "rm -rf ./node_modules/jest-cli/.haste_cache && jest ",
     "start": "react-native start"
   },
   "dependencies": {
+    "immutable": "^3.7.5",
+    "key-mirror": "^1.0.1",
     "react-native": "^0.17.0",
+    "react-native-blur": "^0.7.8",
+    "react-native-htmlview": "^0.2.0",
+    "react-native-parallax-view": "github:jesseruder/react-native-parallax-view",
+    "react-native-vector-icons": "^1.0.4",
     "react-redux": "^3.1.0",
     "redux": "^3.0.4",
     "redux-thunk": "^1.0.0",
     "regenerator": "^0.8.42",
     "underscore": "^1.8.3",
-    "validate.js": "^0.9.0",
-    "immutable": "^3.7.5",
-    "key-mirror": "^1.0.1"
+    "validate.js": "^0.9.0"
   },
   "devDependencies": {
     "babel-jest": "^6.0.1",
