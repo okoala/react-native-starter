@@ -5,15 +5,16 @@ import { Map } from 'immutable'
 
 import * as actions from '../store/actions'
 
-import Login from './Login'
-import Tabbar from '../components/Tabbar'
+// import Login from './Login'
+// import Tabbar from '../components/Tabbar'
 
 class App extends React.Component {
   constructor (props) {
+    super(props)
     this.state = {
       loggedIn: false
     }
-  },
+  }
 
   render () {
     <View style={styles.container}>

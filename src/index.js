@@ -13,8 +13,8 @@ const VERSION = '0.1.0'
  * 触发一些默认的Actions
  *
  */
-import { setPlatform, setVersion } from './store/device/deviceActions'
-import { setStore } from './store/global/globalActions'
+import { setPlatform, setVersion } from './store/actions'
+// import { setStore } from './store/global/globalActions'
 
 
 export default function native (platform) {
@@ -22,7 +22,7 @@ export default function native (platform) {
     render() {
       store.dispatch(setPlatform(platform))
       store.dispatch(setVersion(VERSION))
-      store.dispatch(setStore(store))
+      // store.dispatch(setStore(store))
 
       return (
         <Provider store={store}>

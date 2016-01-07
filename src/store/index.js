@@ -5,19 +5,19 @@ import thunk from 'redux-thunk'
  * 默认的reducer
  *
  */
-import authReducer from './auth/authReducer'
-import deviceReducer from './device/deviceReducer'
-import globalReducer from './global/globalReducer'
-import profileReducer from './profile/profileReducer'
+// import authReducer from './auth/authReducer'
+import deviceReducer from './modules/device/deviceReducer'
+// import globalReducer from './global/globalReducer'
+// import profileReducer from './profile/profileReducer'
 
 /**
  * States
  *
  */
-import authInitialState from './store/auth/authInitialState'
-import deviceInitialState from './store/device/deviceInitialState'
-import globalInitialState from './store/global/globalInitialState'
-import profileInitialState from './store/profile/profileInitialState'
+// import authInitialState from './store/auth/authInitialState'
+import deviceInitialState from './modules/device/deviceInitialState'
+// import globalInitialState from './store/global/globalInitialState'
+// import profileInitialState from './store/profile/profileInitialState'
 
 /**
  * 初始化states
@@ -25,10 +25,10 @@ import profileInitialState from './store/profile/profileInitialState'
  * @return {[type]} [description]
  */
 const initialState = {
-  auth: new authInitialState,
-  device: (new deviceInitialState).set('isMobile',true),
-  global: (new globalInitialState),
-  profile: new profileInitialState
+  // auth: new authInitialState,
+  device: (new deviceInitialState).set('isMobile',true)
+  // global: (new globalInitialState),
+  // profile: new profileInitialState
 }
 
 /**
@@ -36,10 +36,10 @@ const initialState = {
  *
  */
 const rootReducer = combineReducers({
-  authReducer,
-  deviceReducer,
-  globalReducer,
-  profileReducer
+  // authReducer,
+  deviceReducer
+  // globalReducer,
+  // profileReducer
 })
 
 /**
