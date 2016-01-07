@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
  *
  */
 // import authReducer from './auth/authReducer'
-import deviceReducer from './modules/device/deviceReducer'
+import device from './modules/device/deviceReducer'
 // import globalReducer from './global/globalReducer'
 // import profileReducer from './profile/profileReducer'
 
@@ -37,7 +37,7 @@ const initialState = {
  */
 const rootReducer = combineReducers({
   // authReducer,
-  deviceReducer
+  device
   // globalReducer,
   // profileReducer
 })

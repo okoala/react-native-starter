@@ -10,6 +10,6 @@ export default createReducer(initialState, {
   },
 
   [types.SET_VERSION]: (state, version) => {
-    return state.set('version', platform)
+    return state.set('version', version)
   }
 })
