@@ -13,7 +13,7 @@
 
 ## Useage
 
-  - 根据官网搞定RN一些基础环境
+  - 根据官网搞定RN一些基础环境 watchman、rnpm神马的~
   - git clone https://github.com/okoala/RNStarter.git && cd RNStarter
   - npm i --verbose
   - Open Xcode and Debug

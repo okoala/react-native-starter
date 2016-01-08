@@ -5,19 +5,17 @@ import thunk from 'redux-thunk'
  * 默认的reducer
  *
  */
-// import authReducer from './auth/authReducer'
+import cnode from './modules/cnode/cnodeReducer'
+import dribbble from './modules/dribbble/dribbbleReducer'
 import device from './modules/device/deviceReducer'
-// import globalReducer from './global/globalReducer'
-// import profileReducer from './profile/profileReducer'
 
 /**
  * States
  *
  */
-// import authInitialState from './store/auth/authInitialState'
+import cnodeInitialState from './modules/cnode/cnodeInitialState'
+import dribbbleInitialState from './modules/dribbble/dribbbleInitialState'
 import deviceInitialState from './modules/device/deviceInitialState'
-// import globalInitialState from './store/global/globalInitialState'
-// import profileInitialState from './store/profile/profileInitialState'
 
 /**
  * 初始化states
@@ -25,10 +23,9 @@ import deviceInitialState from './modules/device/deviceInitialState'
  * @return {[type]} [description]
  */
 const initialState = {
-  // auth: new authInitialState,
+  cnode: new cnodeInitialState,
+  dribbble: new dribbbleInitialState,
   device: (new deviceInitialState).set('isMobile',true)
-  // global: (new globalInitialState),
-  // profile: new profileInitialState
 }
 
 /**
@@ -36,10 +33,9 @@ const initialState = {
  *
  */
 const rootReducer = combineReducers({
-  // authReducer,
+  cnode,
+  dribbble,
   device
-  // globalReducer,
-  // profileReducer
 })
 
 /**
