@@ -1,32 +1,33 @@
+import Url from '../util/url'
+
 import {
   CNODE_API_URL,
   DRIBBBLE_API_URL,
   DRIBBBLE_ACCESS_TOKEN
 } from '../config'
 
-function _fetchDribbleData (url) {
-  return fetch(DRIBBBLE_API_URL + url, {
-    headers: {
-      "Authorization": "Bearer " + DRIBBBLE_ACCESS_TOKEN
-    }
-  }).then(res => res.json())
+const defaultDribbbleOptions = {
+  headers: {
+    "Authorization": "Bearer " + DRIBBBLE_ACCESS_TOKEN
+  }
 }
 
-function _fetchCNodeData (url) {
-  return fetch(CNODE_API_URL + url).then(res => res.json())
+function _fetchData (url, defaultParams = {}, defaultOptions = {}) {
+  return {
+    get: function (params = {}, options = {}) {
+      const _options = Object.assign(defaultOptions, options, {method: 'GET'})
+      const _params = Url.params(Object.assign(defaultParams, params))
+      return fetch(url + '?' + _params).then(res => res.json())
+    },
+    save: function (params = {}, options = {}) {
+      const _options = Object.assign(defaultOptions, options, {method: 'POST'})
+      _options.body = JSON.stringify(Object.assign(defaultParams, params))
+      return fetch(url, _options).then(res => res.json())
+    }
+  }
 }
 
 export default {
-  getDribbbleShotsByType: function (type, pageNumber) {
-    var URL = API_URL + "shots/?list=" + type
-    if (pageNumber) {
-      URL += "&per_page=10&page=" + pageNumber
-    }
-
-    return _fetchDribbleData(URL)
-  },
-
-  getCNodeAllTopics: function () {
-
-  }
+  getDribbbleShots: _fetchData(DRIBBBLE_API_URL + 'shots', {}, defaultDribbbleOptions),
+  getCNodeAllTopics: _fetchData(CNODE_API_URL)
 }
