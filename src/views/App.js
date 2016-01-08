@@ -1,35 +1,61 @@
-import React, { StyleSheet, Text, View } from 'react-native'
+import React, {
+  StyleSheet,
+  NavigatorIOS,
+  TabBarIOS,
+  Text,
+  View
+} from 'react-native'
+
+import Icon from 'react-native-vector-icons/Ionicons'
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux/native'
-import { Map } from 'immutable'
-
 import * as actions from '../store/actions'
 
-// import Login from './Login'
-// import Tabbar from '../components/Tabbar'
+import OriginalView from './Original'
+import CommunityView from './Community'
+import DribbbleView from './Dribbble'
+import CNodeView from './CNode'
 
 class App extends React.Component {
   constructor (props) {
     super(props)
+
     this.state = {
-      loggedIn: false
+      selectedTab: "original"
     }
+  }
+
+  _renderTabBarItem (title, icon, name, view) {
+    return (
+      <Icon.TabBarItem
+        title={title}
+        iconName={icon}
+        selectedIconName={icon}
+        selected={this.state.selectedTab === name}
+        onPress={() => {
+          this.setState({
+            selectedTab: name
+          })
+        }}>
+        <NavigatorIOS style={styles.wrapper}
+          initialRoute={{
+            component: view,
+            title: title
+          }}
+        />
+      </Icon.TabBarItem>
+    )
   }
 
   render () {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <TabBarIOS tintColor={"#ea4c89"}>
+        {this._renderTabBarItem("原生组件", "pizza", "original", OriginalView)}
+        {this._renderTabBarItem("社区组件", "coffee", "community", CommunityView)}
+        {this._renderTabBarItem("Dribble", "social-dribbble-outline", "dribbble", DribbbleView)}
+        {this._renderTabBarItem("CNode", "social-nodejs", "cnodejs", CNodeView)}
+      </TabBarIOS>
     )
   }
 }
@@ -43,21 +69,16 @@ const dispatchToProps = (dispatch) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  tabContent: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    alignItems: "center"
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
+  tabText: {
+    color: "white",
+    margin: 50
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
+  wrapper: {
+    flex: 1
   }
 })
 
