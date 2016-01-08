@@ -28,7 +28,6 @@ class ShotDetail extends React.Component {
 
     this.state = {
       isModalOpen: false,
-      isLoading: true,
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2
       })
@@ -76,15 +75,16 @@ class ShotDetail extends React.Component {
   }
 
   _renderLoading () {
-    return <ActivityIndicatorIOS animating={this.state.isLoading} style={styles.spinner} />
+    const isLoading = this.props.dribbble.shotDetail.isLoading
+    return <ActivityIndicatorIOS animating={isLoading} style={styles.spinner} />
   }
 
   render () {
-    const player = this.props.dribbble.shot.user
+    const player = this.props.shot.user
 
     return (
       <ParallaxView
-        backgroundSource={shotImage(this.props.dribbble.shot)}
+        backgroundSource={shotImage(this.props.shot)}
         windowHeight={300}
         header={(
           <TouchableOpacity onPress={this._openModal}>
@@ -101,7 +101,7 @@ class ShotDetail extends React.Component {
               <Image
                 source={authorAvatar(player)}
                 style={styles.playerAvatar} />
-              <Text style={styles.shotTitle}>{this.props.dribbble.shot.title}</Text>
+              <Text style={styles.shotTitle}>{this.props.shot.title}</Text>
               <Text style={styles.playerContent}>by <Text style={styles.player}>{player.name}</Text></Text>
             </View>
           </TouchableHighlight>
@@ -109,20 +109,20 @@ class ShotDetail extends React.Component {
             <View style={styles.shotDetailsRow}>
               <View style={styles.shotCounter}>
                 <Icon name="heart-o" size={24} color="#333"/>
-                <Text style={styles.shotCounterText}> {this.props.dribbble.shot.likes_count} </Text>
+                <Text style={styles.shotCounterText}> {this.props.shot.likes_count} </Text>
               </View>
               <View style={styles.shotCounter}>
                 <Icon name="comments-o" size={24} color="#333"/>
-                <Text style={styles.shotCounterText}> {this.props.dribbble.shot.comments_count} </Text>
+                <Text style={styles.shotCounterText}> {this.props.shot.comments_count} </Text>
               </View>
               <View style={styles.shotCounter}>
                 <Icon name="eye" size={24} color="#333"/>
-                <Text style={styles.shotCounterText}> {this.props.dribbble.shot.views_count} </Text>
+                <Text style={styles.shotCounterText}> {this.props.shot.views_count} </Text>
               </View>
             </View>
             <View style={styles.separator} />
             <Text>
-              <HTML value={this.props.dribbble.shot.description}
+              <HTML value={this.props.shot.description}
                     stylesheet={styles}/>
             </Text>
             <View>
@@ -137,7 +137,7 @@ class ShotDetail extends React.Component {
           visible={this.state.isModalOpen}
           onDismiss={this._closeModal}>
           <Image
-            source={shotImage(this.props.dribbble.shot)}
+            source={shotImage(this.props.shot)}
             style={styles.customModalImage}
             resizeMode="contain"/>
         </Modal>

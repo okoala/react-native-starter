@@ -2,7 +2,7 @@ import { Record } from 'immutable'
 
 const InitialState = Record({
   shot: {},
-  shotList: [],
+  shots: {},
   shotDetail: {}
 })
 
