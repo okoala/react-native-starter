@@ -33,6 +33,7 @@
     ]
   },
   "scripts": {
+    "postinstall": "rnpm link",
     "test": "rm -rf ./node_modules/jest-cli/.haste_cache && jest ",
     "start": "react-native start"
   },
