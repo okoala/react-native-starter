@@ -8,7 +8,7 @@
  */
 
 #import "AppDelegate.h"
-
+#import "CodePush.h"
 #import "RCTRootView.h"
 
 @implementation AppDelegate
