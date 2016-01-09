@@ -9,7 +9,7 @@ export function authorAvatar (player) {
     uri = player.avatar_url
     return { uri }
   } else {
-    uri = require('../../img/AuthorAvatar.png')
+    uri = require('../styles/AuthorAvatar.png')
     return uri
   }
 }

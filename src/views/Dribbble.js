@@ -4,11 +4,13 @@ import React, {
   View
 } from 'react-native'
 
+import ShotList from '../components/ShotList'
+
 class DribbbleView extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <View style={styles.separator} />
+        <ShotList />
         <Text>Dribbble</Text>
       </View>
     )

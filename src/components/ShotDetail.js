@@ -14,6 +14,10 @@ import React, {
   Modal
 } from 'react-native'
 
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux/native'
+import * as actions from '../store/actions'
+
 import Icon from 'react-native-vector-icons/Ionicons'
 import HTMLView from 'react-native-htmlview'
 import ParallaxView from 'react-native-parallax-view'

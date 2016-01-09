@@ -14,8 +14,6 @@ const VERSION = '0.1.0'
  *
  */
 import { setPlatform, setVersion } from './store/actions'
-// import { setStore } from './store/global/globalActions'
-
 
 export default function native (platform) {
   const RNStarter = React.createClass({
