@@ -42,6 +42,7 @@
     "key-mirror": "^1.0.1",
     "react-native": "^0.17.0",
     "react-native-blur": "^0.7.8",
+    "react-native-code-push": "^1.5.2-beta",
     "react-native-htmlview": "^0.2.0",
     "react-native-parallax-view": "github:jesseruder/react-native-parallax-view",
     "react-native-quick-actions": "^0.1.0",
