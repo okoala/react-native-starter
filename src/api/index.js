@@ -2,13 +2,14 @@ import Url from '../util/url'
 
 import {
   CNODE_API_URL,
+  DRIBBBLE_USER,
   DRIBBBLE_API_URL,
   DRIBBBLE_ACCESS_TOKEN
 } from '../config'
 
 const defaultDribbbleOptions = {
   headers: {
-    "Authorization": "Bearer " + DRIBBBLE_ACCESS_TOKEN
+    "Authorization": DRIBBBLE_USER + " " + DRIBBBLE_ACCESS_TOKEN
   }
 }
 
@@ -17,7 +18,7 @@ function _fetchData (url, defaultParams = {}, defaultOptions = {}) {
     get: function (params = {}, options = {}) {
       const _options = Object.assign(defaultOptions, options, {method: 'GET'})
       const _params = Url.params(Object.assign(defaultParams, params))
-      return fetch(url + '?' + _params).then(res => res.json())
+      return fetch(url + '?' + _params, _options).then(res => res.json())
     },
     save: function (params = {}, options = {}) {
       const _options = Object.assign(defaultOptions, options, {method: 'POST'})
