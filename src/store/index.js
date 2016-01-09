@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import thunk from 'redux-thunk'
+import thunkMiddleware from 'redux-thunk'
+import promiseMiddleware from 'redux-promise-middleware'
 
 /**
  * 默认的reducer
@@ -43,7 +44,8 @@ const rootReducer = combineReducers({
  *
  */
 const createStoreWithMiddleware = applyMiddleware(
-  thunk
+  thunkMiddleware,
+  promiseMiddleware()
 )(createStore)
 
 const store = createStoreWithMiddleware(rootReducer, initialState)
