@@ -9,6 +9,7 @@ import promiseMiddleware from 'redux-promise-middleware'
 import cnode from './modules/cnode/cnodeReducer'
 import dribbble from './modules/dribbble/dribbbleReducer'
 import device from './modules/device/deviceReducer'
+import global from './modules/global/globalReducer'
 
 /**
  * States
@@ -17,6 +18,7 @@ import device from './modules/device/deviceReducer'
 import cnodeInitialState from './modules/cnode/cnodeInitialState'
 import dribbbleInitialState from './modules/dribbble/dribbbleInitialState'
 import deviceInitialState from './modules/device/deviceInitialState'
+import globalInitialState from './modules/global/globalInitialState'
 
 /**
  * 初始化states
@@ -26,7 +28,8 @@ import deviceInitialState from './modules/device/deviceInitialState'
 const initialState = {
   cnode: new cnodeInitialState,
   dribbble: new dribbbleInitialState,
-  device: (new deviceInitialState).set('isMobile',true)
+  device: (new deviceInitialState).set('isMobile',true),
+  global: new globalInitialState
 }
 
 /**
@@ -36,7 +39,8 @@ const initialState = {
 const rootReducer = combineReducers({
   cnode,
   dribbble,
-  device
+  device,
+  global
 })
 
 /**

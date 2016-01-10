@@ -95,14 +95,6 @@ class ShotList extends React.Component {
   }
 }
 
-const stateToProps = (state) => {
-  return {...state}
-}
-
-const dispatchToProps = (dispatch) => {
-  return bindActionCreators({...actions}, dispatch)
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -118,5 +110,8 @@ const styles = StyleSheet.create({
     marginVertical: 20
   }
 })
+
+const stateToProps = (state) => ({...state})
+const dispatchToProps = (dispatch) => bindActionCreators({...actions}, dispatch)
 
 export default connect(stateToProps, dispatchToProps)(ShotList)

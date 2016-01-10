@@ -32,6 +32,6 @@ export default {
   getDribbbleShots: _fetchData(DRIBBBLE_API_URL + 'shots', {}, defaultDribbbleOptions),
   getCNodeAllTopics: _fetchData(CNODE_API_URL),
   getDribbbleResources: function (url) {
-    return fetch(url, defaultDribbbleOptions).then((response) => response.json())
+    return fetch(url, defaultDribbbleOptions).then(res => res.json())
   }
 }

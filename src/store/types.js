@@ -8,5 +8,12 @@ export default keyMirror({
   GET_DRIBBBLE_SHOT_DETAIL: null,
 
   SET_PLATFORM: null,
-  SET_VERSION: null
+  SET_VERSION: null,
+
+  TEST: null,
+
+  SET_SESSION_TOKEN: null,
+  SET_STORE: null,
+  SET_STATE: null,
+  GET_STATE: null
 })
