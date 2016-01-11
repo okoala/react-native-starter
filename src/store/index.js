@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import promiseMiddleware from 'redux-promise-middleware'
+import promiseMiddleware from './middlewares/promiseMiddleware'
 
 /**
  * 默认的reducer

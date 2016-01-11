@@ -14,9 +14,9 @@ export function getDribbbleComment (id, url) {
   return {
     type: types.GET_DRIBBBLE_SHOT_COMMENT,
     payload: {
-      id,
       promise: api.getDribbbleResources(url)
-    }
+    },
+    params: {id}
   }
 }
 
@@ -24,8 +24,8 @@ export function getDribbbleShot (id, url) {
   return {
     type: types.GET_DRIBBBLE_SHOT,
     payload: {
-      id,
       promise: api.getDribbbleResources(url)
-    }
+    },
+    params: {id}
   }
 }
