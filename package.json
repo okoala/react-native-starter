@@ -44,7 +44,7 @@
     "react-native-blur": "^0.7.8",
     "react-native-code-push": "^1.5.2-beta",
     "react-native-htmlview": "^0.2.0",
-    "react-native-parallax-view": "github:jesseruder/react-native-parallax-view",
+    "react-native-parallax-view": "^2.0.3",
     "react-native-quick-actions": "^0.1.0",
     "react-native-vector-icons": "^1.0.4",
     "react-redux": "^3.1.0",

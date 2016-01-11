@@ -5,7 +5,7 @@ import React, {
   StyleSheet,
   Text,
   TouchableOpacity,
-  TouchableHightlight,
+  TouchableHighlight,
   ActivityIndicatorIOS,
   View,
   ListView,
@@ -19,10 +19,10 @@ import { connect } from 'react-redux/native'
 import * as actions from '../store/actions'
 
 import Icon from 'react-native-vector-icons/Ionicons'
-import HTMLView from 'react-native-htmlview'
+import HTML from 'react-native-htmlview'
 import ParallaxView from 'react-native-parallax-view'
 import Loading from './Loading'
-import { shotImage } from '../util'
+import { shotImage, authorAvatar } from '../util'
 
 const screen = Dimensions.get('window')
 
@@ -32,14 +32,12 @@ class ShotDetail extends React.Component {
 
     this.state = {
       isModalOpen: false,
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2
-      })
+      dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     }
   }
 
   componentDidMount () {
-    this.props.dribbble.getDribbbleComment(this.props.dribbble.shot.comments_url)
+    this.props.getDribbbleComment(this.props.shot.comments_url)
   }
 
   _openModal () {
@@ -65,7 +63,6 @@ class ShotDetail extends React.Component {
         <Text style={styles.heading}>Comments</Text>
         <View style={styles.separator} />
         <ListView
-          ref="commentsView"
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
           automaticallyAdjustContentInsets={false}
@@ -98,7 +95,7 @@ class ShotDetail extends React.Component {
         <View>
           <TouchableHighlight
             style={styles.invisibleTouch}
-            onPress={this.selectPlayer.bind(this, player)}
+            onPress={this._selectPlayer.bind(this, player)}
             underlayColor={"#333"}
             activeOpacity={0.95}>
             <View style={styles.headerContent}>
@@ -112,11 +109,11 @@ class ShotDetail extends React.Component {
           <View style={styles.mainSection}>
             <View style={styles.shotDetailsRow}>
               <View style={styles.shotCounter}>
-                <Icon name="heart-o" size={24} color="#333"/>
+                <Icon name="heart" size={24} color="#333"/>
                 <Text style={styles.shotCounterText}> {this.props.shot.likes_count} </Text>
               </View>
               <View style={styles.shotCounter}>
-                <Icon name="comments-o" size={24} color="#333"/>
+                <Icon name="chatboxes" size={24} color="#333"/>
                 <Text style={styles.shotCounterText}> {this.props.shot.comments_count} </Text>
               </View>
               <View style={styles.shotCounter}>
@@ -150,15 +147,13 @@ class ShotDetail extends React.Component {
   }
 }
 
-const stateToProps = (state) => {
-  return {...state}
-}
-
-const dispatchToProps = (dispatch) => {
-  return bindActionCreators({...actions}, dispatch)
-}
+const stateToProps = (state) => ({...state})
+const dispatchToProps = (dispatch) => bindActionCreators({...actions}, dispatch)
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 60
+  },
   spinner: {
     marginTop: 20,
     width: 50

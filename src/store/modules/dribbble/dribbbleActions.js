@@ -14,7 +14,7 @@ export function getDribbbleComment (url) {
   return {
     type: types.GET_DRIBBBLE_SHOT_DETAIL,
     payload: {
-      promise: api.getDribbbleResources.get(url)
+      promise: api.getDribbbleResources(url)
     }
   }
 }

@@ -10,8 +10,7 @@ class DribbbleView extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <ShotList />
-        <Text>Dribbble</Text>
+        <ShotList {...this.props}/>
       </View>
     )
   }
@@ -23,10 +22,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flexDirection: "column",
     justifyContent: "center"
-  },
-  separator: {
-    height: 1,
-    backgroundColor: "#eeeeee"
   },
   scrollSpinner: {
     marginVertical: 20

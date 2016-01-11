@@ -80,7 +80,7 @@ class ShotList extends React.Component {
         ref="listview"
         dataSource={this.state.dataSource}
         renderFooter={this._renderFooter}
-        renderRow={this._renderRow}
+        renderRow={this._renderRow.bind(this)}
         onEndReached={this._onEndReached}
         automaticallyAdjustContentInsets={false}
         keyboardDismissMode="on-drag"
