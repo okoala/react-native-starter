@@ -49,7 +49,7 @@ const rootReducer = combineReducers({
  */
 const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware,
-  promiseMiddleware()
+  promiseMiddleware({promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']})
 )(createStore)
 
 const store = createStoreWithMiddleware(rootReducer, initialState)
