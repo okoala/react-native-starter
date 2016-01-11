@@ -10,7 +10,6 @@ export default createReducer(initialState, {
   },
 
   [types.SET_STORE]: (state, data) => {
-    console.log('true')
     return state.set('store', data)
   },
 

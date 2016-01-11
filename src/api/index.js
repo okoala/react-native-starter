@@ -29,7 +29,7 @@ function _fetchData (url, defaultParams = {}, defaultOptions = {}) {
 }
 
 export default {
-  getDribbbleShots: _fetchData(DRIBBBLE_API_URL + 'shots', {}, defaultDribbbleOptions),
+  getDribbbleShots: _fetchData(DRIBBBLE_API_URL + 'shots', {per_page: 10, page: 1}, defaultDribbbleOptions),
   getCNodeAllTopics: _fetchData(CNODE_API_URL),
   getDribbbleResources: function (url) {
     return fetch(url, defaultDribbbleOptions).then(res => res.json())

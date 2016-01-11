@@ -6,7 +6,7 @@ const initialState = new InitialState
 
 export default createReducer(initialState, {
   [`${types.GET_DRIBBBLE_ALL_SHOTS}_FULFILLED`]: (state, data) => {
-    return state.set('shotList', data)
+    return state.set('shots', data)
   },
 
   [`${types.GET_DRIBBBLE_SHOT_DETAIL}_FULFILLED`]: (state, data) => {

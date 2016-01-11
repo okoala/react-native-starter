@@ -1,11 +1,11 @@
 import types from '../../types'
 import api from '../../../api'
 
-export function getDribbbleShots () {
+export function getDribbbleShots (params) {
   return {
     type: types.GET_DRIBBBLE_ALL_SHOTS,
     payload: {
-      promise: api.getDribbbleShots.get()
+      promise: api.getDribbbleShots.get(params)
     }
   }
 }

@@ -24,9 +24,7 @@ class ShotList extends React.Component {
     super(props)
 
     this.state = {
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2
-      }),
+      dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id !== r2.id}),
       filter: this.props.filter,
       queryNumber: 0,
     }
@@ -34,7 +32,7 @@ class ShotList extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     if (this.props.dribbble.shots !== nextProps.dribbble.shots) {
-      this._getDataSource(nextProps.dribbble.shots)
+      this.setState({dataSource: this._getDataSource(nextProps.dribbble.shots)})
     }
   }
 
@@ -71,6 +69,10 @@ class ShotList extends React.Component {
     )
   }
 
+  _onEndReached () {
+
+  }
+
   render () {
     const content = this.state.dataSource.getRowCount() === 0 ?
       <Loading/> :
@@ -85,10 +87,8 @@ class ShotList extends React.Component {
         keyboardShouldPersistTaps={true}
         showsVerticalScrollIndicator={false}
       />
-
     return (
       <View style={styles.container}>
-        <View style={styles.separator} />
         {content}
       </View>
     )

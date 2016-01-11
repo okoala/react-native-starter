@@ -19,7 +19,7 @@ class ShotCell extends React.Component {
         <TouchableHighlight onPress={this.props.onSelect}>
           <View style={styles.row}>
             <Image
-              source={getImage.shotImage(this.props.shot)}
+              source={shotImage(this.props.shot)}
               style={styles.cellImage}
               accessible={true}
             />
