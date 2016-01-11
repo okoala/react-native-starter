@@ -5,7 +5,8 @@ export default keyMirror({
 
   // dribbble相关的type
   GET_DRIBBBLE_ALL_SHOTS: null,
-  GET_DRIBBBLE_SHOT_DETAIL: null,
+  GET_DRIBBBLE_SHOT: null,
+  GET_DRIBBBLE_SHOT_COMMENT: null,
 
   SET_PLATFORM: null,
   SET_VERSION: null,

@@ -40,8 +40,8 @@ class ShotList extends React.Component {
     this.props.getDribbbleShots({type: 1})
   }
 
-  _getDataSource (shots) {
-    return this.state.dataSource.cloneWithRows(shots)
+  _getDataSource (data) {
+    return this.state.dataSource.cloneWithRows(data)
   }
 
   _selectShot (shot) {

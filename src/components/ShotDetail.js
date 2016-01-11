@@ -18,6 +18,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux/native'
 import * as actions from '../store/actions'
 
+import CommentItem from './CommentItem'
+import ShotPlayer from './ShotPlayer'
 import Icon from 'react-native-vector-icons/Ionicons'
 import HTML from 'react-native-htmlview'
 import ParallaxView from 'react-native-parallax-view'
@@ -36,8 +38,21 @@ class ShotDetail extends React.Component {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    const id = this.props.shot.id
+    const comments = nextProps.dribbble.shotComments[id].comments
+    if (this.props.dribbble.shotComments[id].comments !== comments) {
+      this.setState({dataSource: this._getDataSource(comments)})
+    }
+  }
+
   componentDidMount () {
-    this.props.getDribbbleComment(this.props.shot.comments_url)
+    const shot = this.props.shot
+    this.props.getDribbbleComment(shot.id, shot.comments_url)
+  }
+
+  _getDataSource (data) {
+    return this.state.dataSource.cloneWithRows(data)
   }
 
   _openModal () {
@@ -50,7 +65,7 @@ class ShotDetail extends React.Component {
 
   _selectPlayer (player) {
     this.props.navigator.push({
-      component: Player,
+      component: ShotPlayer,
       passProps: { player },
       title: player.name
     })
@@ -76,7 +91,8 @@ class ShotDetail extends React.Component {
   }
 
   _renderLoading () {
-    const isLoading = this.props.dribbble.shotDetail.isLoading
+    const id = this.props.shot.id
+    const isLoading = !this.props.dribbble.shotComments[id].list
     return <ActivityIndicatorIOS animating={isLoading} style={styles.spinner} />
   }
 
@@ -86,7 +102,7 @@ class ShotDetail extends React.Component {
     return (
       <ParallaxView
         backgroundSource={shotImage(this.props.shot)}
-        windowHeight={300}
+        windowHeight={200}
         header={(
           <TouchableOpacity onPress={this._openModal}>
             <View style={styles.invisibleView}></View>
@@ -146,9 +162,6 @@ class ShotDetail extends React.Component {
     )
   }
 }
-
-const stateToProps = (state) => ({...state})
-const dispatchToProps = (dispatch) => bindActionCreators({...actions}, dispatch)
 
 const styles = StyleSheet.create({
   container: {
@@ -248,5 +261,8 @@ const styles = StyleSheet.create({
     fontSize: 16
   }
 })
+
+const stateToProps = (state) => ({...state})
+const dispatchToProps = (dispatch) => bindActionCreators({...actions}, dispatch)
 
 export default connect(stateToProps, dispatchToProps)(ShotDetail)

@@ -3,19 +3,22 @@ import React, {
   StyleSheet,
   PixelRatio,
   Text,
-  TouchableHightlight,
+  TouchableHighlight,
   View,
   Component,
   Dimensions
 } from 'react-native'
 
-import Icon from 'react-native-vector-icons/Ionicons'
-import HTMLView from 'react-native-htmlview'
+import HTML from 'react-native-htmlview'
 import { authorAvatar } from '../util'
 
 class CommentItem extends React.Component {
   static defaultProps = {
     comments: []
+  };
+
+  componentDidMount () {
+    console.log('true')
   }
 
   render () {

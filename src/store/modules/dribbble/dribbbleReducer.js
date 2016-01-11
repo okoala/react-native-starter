@@ -9,9 +9,14 @@ export default createReducer(initialState, {
     return state.set('shots', data)
   },
 
-  [`${types.GET_DRIBBBLE_SHOT_DETAIL}_FULFILLED`]: (state, data) => {
+  [`${types.GET_DRIBBBLE_SHOT_COMMENT}_FULFILLED`]: (state, data) => {
     const id = data.id
     data.data.isLoaded = false
-    return state.setIn(['shotDetail', id], data.data)
+    return state.setIn(['shotComments', id], data.data)
+  },
+
+  [`${types.GET_DRIBBBLE_SHOT}_FULFILLED`]: (state, data) => {
+    const id = data.id
+    return state.setIn(['shot', id], data.data)
   }
 })
