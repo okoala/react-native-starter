@@ -5,7 +5,7 @@ import {
   DRIBBBLE_USER,
   DRIBBBLE_API_URL,
   DRIBBBLE_ACCESS_TOKEN
-} from '../config'
+} from '../../config'
 
 const defaultDribbbleOptions = {
   headers: {
