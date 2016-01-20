@@ -1,7 +1,7 @@
 import { Record } from 'immutable'
 
 const InitialState = Record({
-  allTopics: []
+  allTopics: new Record([])
 })
 
 export default InitialState

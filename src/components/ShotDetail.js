@@ -40,8 +40,9 @@ class ShotDetail extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     const id = this.props.shot.id
-    const comments = nextProps.dribbble.shotComments[id].comments
-    if (this.props.dribbble.shotComments[id].comments !== comments) {
+    console.log('true')
+    const comments = nextProps.dribbble.shotComments[id]
+    if (this.props.dribbble.shotComments[id] !== comments) {
       this.setState({dataSource: this._getDataSource(comments)})
     }
   }
@@ -92,7 +93,7 @@ class ShotDetail extends React.Component {
 
   _renderLoading () {
     const id = this.props.shot.id
-    const isLoading = !this.props.dribbble.shotComments[id].list
+    const isLoading = !this.state.dataSource.getRowCount()
     return <ActivityIndicatorIOS animating={isLoading} style={styles.spinner} />
   }
 
