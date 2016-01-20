@@ -17,3 +17,24 @@
   - git clone https://github.com/okoala/RNStarter.git && cd RNStarter
   - npm i --verbose
   - Open Xcode and Debug
+
+
+## 错误解决方案
+
+  如果是 fbjs 的相关错误可以如下操作：
+  ```
+    1) rm -rf node_modules
+    2) npm install
+    3) npm install fbjs
+    3) find . -name 'fbjs' -print
+    4) manually remove all fbjs inside any node_module except one at top level
+    5) rm -fr $TMPDIR/react-*
+    6) watchman watch-del-all
+    7) npm start --reset-cache
+  ```
+
+  如果 Invalid directory
+  ```
+    watchman watch-del-all
+    npm cache clean && npm install
+  ```

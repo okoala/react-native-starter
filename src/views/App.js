@@ -9,7 +9,7 @@ import React, {
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux/native'
+import { connect } from 'react-redux'
 import * as actions from '../store/actions'
 
 import OriginalView from './Original'

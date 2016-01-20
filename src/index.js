@@ -3,7 +3,7 @@
  *
  */
 import React, { AppRegistry } from 'react-native'
-import { Provider } from 'react-redux/native'
+import { Provider } from 'react-redux'
 import App from './views/App'
 import store from './store'
 
@@ -24,7 +24,7 @@ export default function native (platform) {
 
       return (
         <Provider store={store}>
-          {() => <App store={store}/>}
+          <App store={store}/>
         </Provider>
       )
     }

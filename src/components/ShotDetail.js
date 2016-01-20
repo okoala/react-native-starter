@@ -15,7 +15,7 @@ import React, {
 } from 'react-native'
 
 import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux/native'
+import { connect } from 'react-redux'
 import * as actions from '../store/actions'
 
 import CommentItem from './CommentItem'
