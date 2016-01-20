@@ -32,7 +32,9 @@ class ShotList extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     if (this.props.dribbble.shots !== nextProps.dribbble.shots) {
-      this.setState({dataSource: this._getDataSource(nextProps.dribbble.shots)})
+      if (nextProps.dribbble.shots) {
+        this.setState({dataSource: this._getDataSource(nextProps.dribbble.shots)})
+      }
     }
   }
 

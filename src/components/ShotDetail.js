@@ -40,9 +40,8 @@ class ShotDetail extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     const id = this.props.shot.id
-    console.log('true')
-    const comments = nextProps.dribbble.shotComments[id]
-    if (this.props.dribbble.shotComments[id] !== comments) {
+    const comments = nextProps.dribbble.shotComments.get(id)
+    if (this.props.dribbble.shotComments.get(id) !== comments) {
       this.setState({dataSource: this._getDataSource(comments)})
     }
   }

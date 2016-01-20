@@ -17,10 +17,6 @@ class CommentItem extends React.Component {
     comments: []
   };
 
-  componentDidMount () {
-    console.log('true')
-  }
-
   render () {
     return (
       <View>

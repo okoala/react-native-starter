@@ -11,7 +11,7 @@ export default createReducer(initialState, {
 
   [`${types.GET_DRIBBBLE_SHOT_COMMENT}_SUCCESS`]: (state, data, params) => {
     const id = params.id
-    return state.setIn(['shotComments', id], new Record(data))
+    return state.setIn(['shotComments', id], data)
   },
 
   [`${types.GET_DRIBBBLE_SHOT}_SUCCESS`]: (state, data, params) => {
