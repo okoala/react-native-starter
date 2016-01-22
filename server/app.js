@@ -46,6 +46,9 @@ app.use(adapt(function*(next) {
     this.app.emit('error', err, this)
   }
 }))
+app.use(adapt(router.routes()))
+app.use(adapt(router.allowedMethods()))
+app.use(adapt(serveStatic))
 
 
 
