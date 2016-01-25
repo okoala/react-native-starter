@@ -38,3 +38,12 @@
     watchman watch-del-all
     npm cache clean && npm install
   ```
+
+  如果是下面的
+
+  Error: Naming collision detected: /Users/koalahuang/Code/RNStarter/node_modules/react-web/node_modules/fbjs/flow/include/camelize.js collides with /Users/koalahuang/Code/RNStarter/node_modules/fbjs/lib/camelize.js
+
+  则
+  ```
+  rm -rf node_modules/react-web/node_modules/fbjs
+  ```
