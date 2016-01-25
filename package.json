@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "rnpm link",
-    "start": "node_modules/react-native/packager/packager.sh",
+    "start": "rm -rf node_modules/react-web/node_modules/fbjs && node_modules/react-native/packager/packager.sh",
     "web-dev": "node web/start-dev-server",
     "web-bundle": "webpack --config web/webpack.config.js --colors"
   },
@@ -28,7 +27,7 @@
     "pem": "^1.8.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "react-native": "^0.18.1",
+    "react-native": "^0.19.0-rc",
     "react-native-blur": "^0.7.9",
     "react-native-code-push": "^1.5.3-beta",
     "react-native-htmlview": "^0.2.0",
