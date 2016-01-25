@@ -1,6 +1,6 @@
 import { createReducer } from '../../../util'
 import types from '../../types'
-import InitialState from './cnodeInitialState'
+import InitialState from './cnodeInitState'
 
 const initialState = new InitialState
 

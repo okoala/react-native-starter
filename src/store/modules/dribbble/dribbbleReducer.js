@@ -1,6 +1,6 @@
 import { createReducer } from '../../../util'
 import types from '../../types'
-import InitialState from './dribbbleInitialState'
+import InitialState from './dribbbleInitState'
 
 const initialState = new InitialState
 

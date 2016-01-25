@@ -1,5 +1,5 @@
 import { createReducer } from '../../../util'
-import InitialState from './globalInitialState'
+import InitialState from './globalInitState'
 import types from '../../types'
 
 const initialState = new InitialState

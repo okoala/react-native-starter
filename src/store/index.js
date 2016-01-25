@@ -1,47 +1,8 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import promiseMiddleware from './middlewares/promiseMiddleware'
-
-/**
- * 默认的reducer
- *
- */
-import cnode from './modules/cnode/cnodeReducer'
-import dribbble from './modules/dribbble/dribbbleReducer'
-import device from './modules/device/deviceReducer'
-import global from './modules/global/globalReducer'
-
-/**
- * States
- *
- */
-import cnodeInitialState from './modules/cnode/cnodeInitialState'
-import dribbbleInitialState from './modules/dribbble/dribbbleInitialState'
-import deviceInitialState from './modules/device/deviceInitialState'
-import globalInitialState from './modules/global/globalInitialState'
-
-/**
- * 初始化states
- *
- * @return {[type]} [description]
- */
-const initialState = {
-  cnode: new cnodeInitialState,
-  dribbble: new dribbbleInitialState,
-  device: (new deviceInitialState).set('isMobile',true),
-  global: new globalInitialState
-}
-
-/**
- * 合并Reducer
- *
- */
-const rootReducer = combineReducers({
-  cnode,
-  dribbble,
-  device,
-  global
-})
+import rootReducer from './reducers'
+import initState from './initState'
 
 /**
  * 创建store中间件
@@ -52,6 +13,6 @@ const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware({promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']})
 )(createStore)
 
-const store = createStoreWithMiddleware(rootReducer, initialState)
+const store = createStoreWithMiddleware(rootReducer, initState)
 
 export default store
