@@ -11,13 +11,17 @@
   - Redux
   - Immutable
 
-## Useage
+## Install
 
   - 根据官网搞定RN一些基础环境 watchman、rnpm神马的~
   - git clone https://github.com/okoala/RNStarter.git && cd RNStarter
   - npm i --verbose
-  - Open Xcode and Debug
 
+## Run
+
+  - IOS: npm run ios
+  - Android: npm run android
+  - Web: npm run web
 
 ## 错误解决方案
 
