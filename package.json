@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "rm -rf node_modules/react-web/node_modules/fbjs && node_modules/react-native/packager/packager.sh",
-    "web-dev": "node web/start-dev-server",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
+    "web": "node web/start-dev-server & npm run web-bundle",
     "web-bundle": "webpack --config web/webpack.config.js --colors"
   },
   "dependencies": {
