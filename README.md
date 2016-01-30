@@ -19,8 +19,8 @@
 
 ## Run
 
-  - IOS: npm run ios
-  - Android: npm run android
+  - IOS: react-native run-ios
+  - Android: react-native run-android
   - Web: npm run web
 
 ## 错误解决方案

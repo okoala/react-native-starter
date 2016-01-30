@@ -3,8 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "ios": "react-native run-ios",
-    "android": "react-native run-android",
     "web": "node web/start-dev-server & npm run web-bundle",
     "web-bundle": "webpack --config web/webpack.config.js --colors"
   },
