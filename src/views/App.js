@@ -60,9 +60,6 @@ class App extends React.Component {
   }
 }
 
-const stateToProps = (state) => ({...state})
-const dispatchToProps = (dispatch) => bindActionCreators({...actions}, dispatch)
-
 const styles = StyleSheet.create({
   tabContent: {
     flex: 1,
@@ -77,6 +74,7 @@ const styles = StyleSheet.create({
   }
 })
 
+const stateToProps = (state) => ({...state})
+const dispatchToProps = (dispatch) => bindActionCreators({...actions}, dispatch)
+
 export default connect(stateToProps, dispatchToProps)(App)
-
-

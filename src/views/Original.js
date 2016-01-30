@@ -1,33 +1,54 @@
 import React, {
   StyleSheet,
+  Setting,
   Text,
   View
 } from 'react-native'
 
+import UIExplorerListBase from './UIExplorerListBase'
+
+const COMPONENTS = [
+  require('../components/original/BorderExample')
+]
+const APIS = []
+
 class OriginalView extends React.Component {
+  renderAdditionalView (renderRow, renderTextInput) {
+    return renderTextInput(styles.searchTextInput)
+  }
+
+  search (text) {
+    Settings.set({searchText: text})
+  }
+
+  _openExample (example) {
+    this.props.navigator.push({
+      title: example.title,
+      component: example
+    })
+  }
+
+  onPressRow (example) {
+    this._openExample(example)
+  }
+
   render () {
     return (
-      <View style={styles.container}>
-        <View style={styles.separator} />
-        <Text>原生组件</Text>
-      </View>
+      <UIExplorerListBase
+        components={COMPONENTS}
+        apis={APIS}
+        searchText={Setting.get('searchText')}
+        renderAdditionalView={this.renderAdditionalView.bind(this)}
+        search={this.search.bind(this)}
+        onPressRow={this.onPressRow.bind(this)}
+      />
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    flexDirection: "column",
-    justifyContent: "center"
-  },
-  separator: {
-    height: 1,
-    backgroundColor: "#eeeeee"
-  },
-  scrollSpinner: {
-    marginVertical: 20
+  searchTextInput: {
+    height: 20
   }
 })
 
