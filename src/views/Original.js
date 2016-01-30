@@ -1,11 +1,11 @@
 import React, {
   StyleSheet,
-  Setting,
+  Settings,
   Text,
   View
 } from 'react-native'
 
-import UIExplorerListBase from './UIExplorerListBase'
+import UIExplorerListBase from '../components/UIExplorerListBase'
 
 const COMPONENTS = [
   require('../components/original/BorderExample')
@@ -37,7 +37,7 @@ class OriginalView extends React.Component {
       <UIExplorerListBase
         components={COMPONENTS}
         apis={APIS}
-        searchText={Setting.get('searchText')}
+        searchText={Settings.get('searchText')}
         renderAdditionalView={this.renderAdditionalView.bind(this)}
         search={this.search.bind(this)}
         onPressRow={this.onPressRow.bind(this)}
