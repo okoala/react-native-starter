@@ -6,7 +6,7 @@ import React, {
 
 import UIExplorerTitle from './UIExplorerTitle'
 
-class UIExplorerTitle extends React.Component {
+class UIExplorerPage extends React.Component {
   static propTypes = {
     keyboardShouldPersistTaps: React.PropTypes.bool,
     noScroll: React.PropTypes.bool,
@@ -27,8 +27,40 @@ class UIExplorerTitle extends React.Component {
       wrapperProps.keyboardDismissMode = 'interactive'
     }
 
+    const title = this.props.title
+      ? <UIExplorerTitle title={this.props.title}/>
+      : null
+
+    const spacer = this.props.noSpacer
+      ? null
+      : <View style={styles.spacer} />
+
     return (
-      <View style={styles.container}></View>
+      <View style={styles.container}>
+        {title}
+        <ContentWrapper
+          style={styles.wrapper}
+          {...wrapperProps}>
+          {this.props.children}
+          {spacer}
+        </ContentWrapper>
+      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#e9eaed',
+    flex: 1
+  },
+  spacer: {
+    height: 270
+  },
+  wrapper: {
+    flex: 1,
+    paddingTop: 10
+  }
+})
+
+export default UIExplorerPage
