@@ -16,7 +16,7 @@ class UIExplorerBlock extends React.Component {
     this.state = {
       description: null
     }
-  },
+  }
 
   render () {
     let description

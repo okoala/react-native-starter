@@ -7,6 +7,8 @@ import React, {
   View
 } from 'react-native'
 
+import createExamplePage from './createExamplePage'
+
 const ds = new ListView.DataSource({
   rowHasChanged: (r1, r2) => r1 !== r2,
   sectionHeaderHasChanged: (h1, h2) => h1 !== h2
@@ -108,6 +110,12 @@ class UIExplorerListBase extends React.Component {
         />
       </View>
     )
+  }
+
+  static makeRenderable (example) {
+    return example.examples
+      ? createExamplePage(null, example)
+      : example
   }
 }
 

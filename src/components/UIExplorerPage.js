@@ -14,7 +14,7 @@ class UIExplorerPage extends React.Component {
   };
 
   render () {
-    const ContentWrapper
+    let ContentWrapper = null
     const wrapperProps = {}
     if (this.props.noScroll) {
       ContentWrapper = View

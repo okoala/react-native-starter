@@ -10,6 +10,7 @@ import UIExplorerListBase from '../components/UIExplorerListBase'
 const COMPONENTS = [
   require('../components/original/BorderExample')
 ]
+
 const APIS = []
 
 class OriginalView extends React.Component {
@@ -22,9 +23,10 @@ class OriginalView extends React.Component {
   }
 
   _openExample (example) {
+    const Component = UIExplorerListBase.makeRenderable(example)
     this.props.navigator.push({
-      title: example.title,
-      component: example
+      title: Component.title,
+      component: Component
     })
   }
 
