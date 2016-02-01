@@ -25,7 +25,7 @@ class OriginalView extends React.Component {
   _openExample (example) {
     const Component = UIExplorerListBase.makeRenderable(example)
     this.props.navigator.push({
-      title: Component.title,
+      title: example.title,
       component: Component
     })
   }
