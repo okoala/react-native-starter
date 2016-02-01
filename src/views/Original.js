@@ -12,6 +12,7 @@ const COMPONENTS = [
 ]
 
 const APIS = [
+  require('../components/original/ActionSheetIOSExample'),
   require('../components/original/AlertIOSExample')
 ]
 
