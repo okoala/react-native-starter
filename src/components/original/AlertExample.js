@@ -81,7 +81,8 @@ class SimpleAlertExampleBlock extends React.Component {
 const styles = StyleSheet.create({
   wrapper: {
     borderRadius: 5,
-    marginBottom: 5
+    marginBottom: 5,
+    overflow: 'hidden'
   },
   button: {
     backgroundColor: '#eeeeee',
