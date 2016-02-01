@@ -11,7 +11,9 @@ const COMPONENTS = [
   require('../components/original/BorderExample')
 ]
 
-const APIS = []
+const APIS = [
+  require('../components/original/AlertIOSExample')
+]
 
 class OriginalView extends React.Component {
   renderAdditionalView (renderRow, renderTextInput) {

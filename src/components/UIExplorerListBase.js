@@ -105,7 +105,7 @@ class UIExplorerListBase extends React.Component {
           renderRow={this.renderRow.bind(this)}
           renderSectionHeader={this._renderSectionHeader}
           keyboardShouldPersistTaps={true}
-          automaticallAdjustContentInsets={false}
+          automaticallyAdjustContentInsets={false}
           keyboardDismissMode="on-drag"
         />
       </View>
