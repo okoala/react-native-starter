@@ -6,6 +6,8 @@ import React, {
   View
 } from 'react-native'
 
+import styles from './baseStyles'
+
 const BUTTONS = [
   'Option 0',
   'Option 1',
@@ -21,9 +23,21 @@ export const title = 'ActionSheetIOS'
 export const description = '显示 iOS\' action sheets'
 export const examples = [
   {
-    title: '普通',
+    title: '正常',
     render () {
       return <ActionSheetExample />
+    }
+  },
+  {
+    title: '改变按钮颜色',
+    render () {
+      return <ActionSheetTintExample />
+    }
+  },
+  {
+    title: '分享',
+    render () {
+      return <ShareActionSheetExample />
     }
   }
 ]
@@ -51,7 +65,7 @@ class ActionSheetExample extends React.Component {
       <View>
         <TouchableHighlight onPress={this.showActionSheet.bind(this)} style={styles.wrapper}>
           <View style={styles.button}>
-            <Text>点击显示ActionSheet</Text>
+            <Text>显示ActionSheet</Text>
           </View>
         </TouchableHighlight>
         <Text style={{marginTop: 5, fontWeight: 'bold'}}>
@@ -62,14 +76,82 @@ class ActionSheetExample extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  wrapper: {
-    borderRadius: 5,
-    marginBottom: 5,
-    overflow: 'hidden'
-  },
-  button: {
-    backgroundColor: '#eeeeee',
-    padding: 10
+class ActionSheetTintExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      clicked: 'none'
+    }
   }
-})
+
+  showActionSheet () {
+    ActionSheetIOS.showActionSheetWithOptions({
+      options: BUTTONS,
+      cancelButtonIndex: CANCEL_INDEX,
+      destructiveButtonIndex: DESTRUCTIVE_INDEX,
+      tintColor: 'green'
+    }, buttonIndex => {
+      this.setState({ clicked: BUTTONS[buttonIndex] })
+    })
+  }
+
+  render () {
+    return (
+      <View>
+        <TouchableHighlight onPress={this.showActionSheet.bind(this)} style={styles.wrapper}>
+          <View style={styles.button}>
+            <Text>显示ActionSheetTint</Text>
+          </View>
+        </TouchableHighlight>
+        <Text style={{marginTop: 5, fontWeight: 'bold'}}>
+          点击了：<Text style={{color: 'red'}}>{this.state.clicked}</Text>
+        </Text>
+      </View>
+    )
+  }
+}
+
+class ShareActionSheetExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      text: ''
+    }
+  }
+
+  showShareActionSheet () {
+    ActionSheetIOS.showShareActionSheetWithOptions({
+      url: 'https://code.facebook.com',
+      message: '这里输入需要分享的URL',
+      subject: '标题内容',
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    }, error => {
+      console.error(error)
+    }, (success, method) => {
+      let text
+      if (success) {
+        text = `Shared via ${method}`
+      } else {
+        text = `分享失败`
+      }
+      this.setState({ text })
+    })
+  }
+
+  render () {
+    return (
+      <View>
+        <TouchableHighlight onPress={this.showShareActionSheet.bind(this)} style={styles.wrapper}>
+          <View style={styles.button}>
+            <Text>显示分享 ActionSheet</Text>
+          </View>
+        </TouchableHighlight>
+        <Text style={{marginTop: 5, fontWeight: 'bold'}}>
+          点击了：<Text style={{color: 'red'}}>{this.state.text}</Text>
+        </Text>
+      </View>
+    )
+  }
+}

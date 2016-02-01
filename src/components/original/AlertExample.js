@@ -6,6 +6,8 @@ import React, {
   View
 } from 'react-native'
 
+import styles from './baseStyles'
+
 const alertMessage = '别逗！'
 
 class SimpleAlertExampleBlock extends React.Component {
@@ -77,17 +79,5 @@ class SimpleAlertExampleBlock extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    borderRadius: 5,
-    marginBottom: 5,
-    overflow: 'hidden'
-  },
-  button: {
-    backgroundColor: '#eeeeee',
-    padding: 10
-  }
-})
 
 export default SimpleAlertExampleBlock

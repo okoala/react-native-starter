@@ -6,6 +6,7 @@ import React, {
   AlertIOS
 } from 'react-native'
 
+import styles from './baseStyles'
 import SimpleAlertExampleBlock from './AlertExample'
 
 export const title = 'AlertIOS'
@@ -73,15 +74,3 @@ class Prompt extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    borderRadius: 5,
-    marginBottom: 5,
-    overflow: 'hidden'
-  },
-  button: {
-    backgroundColor: '#eeeeee',
-    padding: 10
-  }
-})
