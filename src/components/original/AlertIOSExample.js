@@ -68,12 +68,6 @@ class Prompt extends React.Component {
           </View>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.wrapper}
-          onPress={() => AlertIOS.prompt('自定义标题', null, this.onPrompt, null, '我是默认值')}>
-          <View style={styles.button}>
-            <Text>标题、回调、默认值</Text>
-          </View>
-        </TouchableHighlight>
 
       </View>
     )
