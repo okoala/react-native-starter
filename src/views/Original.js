@@ -13,7 +13,8 @@ const COMPONENTS = [
 
 const APIS = [
   require('../components/original/ActionSheetIOSExample'),
-  require('../components/original/AlertIOSExample')
+  require('../components/original/AlertIOSExample'),
+  require('../components/original/LayoutExample')
 ]
 
 class OriginalView extends React.Component {

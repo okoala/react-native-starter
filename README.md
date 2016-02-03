@@ -17,6 +17,10 @@
   - git clone https://github.com/okoala/RNStarter.git && cd RNStarter
   - npm i --verbose
 
+## 效果
+
+![](http://i4.tietuku.com/4aeb75a6a826655a.jpg)
+
 ## Run
 
   - IOS: react-native run-ios
