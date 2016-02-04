@@ -31,7 +31,7 @@
     "react-native-htmlview": "^0.2.0",
     "react-native-parallax-view": "^2.0.3",
     "react-native-quick-actions": "^0.1.0",
-    "react-native-vector-icons": "^1.0.4",
+    "react-native-vector-icons": "^1.1.1",
     "react-redux": "^4.0.6",
     "react-web": "^0.1.6",
     "redux": "^3.0.6",
