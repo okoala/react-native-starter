@@ -8,6 +8,7 @@ import React, {
 import UIExplorerListBase from '../components/UIExplorerListBase'
 
 const COMPONENTS = [
+  require('../components/original/LayoutEventsExample'),
   require('../components/original/BorderExample')
 ]
 
