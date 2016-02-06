@@ -2,12 +2,18 @@ import React, {
   StyleSheet,
   Settings,
   Text,
-  View
+  View,
+  Platform,
 } from 'react-native'
 
 import UIExplorerListBase from '../components/UIExplorerListBase'
 
+const isIOS = Platform.OS === "ios"
+
 const COMPONENTS = [
+  isIOS
+    ? require('../components/original/DatePickerIOSExample')
+    : require('../components/original/DatePickerAndroidExample'),
   require('../components/original/LayoutEventsExample'),
   require('../components/original/BorderExample')
 ]
