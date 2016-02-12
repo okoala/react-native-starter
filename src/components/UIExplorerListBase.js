@@ -20,7 +20,8 @@ class UIExplorerListBase extends React.Component {
     this.state = {
       dataSource: ds.cloneWithRowsAndSections({
         components: [],
-        apis: []
+        apis: [],
+        styles: []
       }),
       searchText: this.props.searchText || ''
     }
@@ -82,7 +83,8 @@ class UIExplorerListBase extends React.Component {
     this.setState({
       dataSource: ds.cloneWithRowsAndSections({
         components: this.props.components.filter(filter),
-        apis: this.props.apis.filter(filter)
+        apis: this.props.apis.filter(filter),
+        styles: this.props.styles.filter(filter)
       }),
       searchText: text
     })

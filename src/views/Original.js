@@ -14,14 +14,20 @@ const COMPONENTS = [
   isIOS
     ? require('../components/original/DatePickerIOSExample')
     : require('../components/original/DatePickerAndroidExample'),
-  require('../components/original/LayoutEventsExample'),
-  require('../components/original/BorderExample')
+
+  require('../components/original/ListViewExample')
 ]
 
 const APIS = [
   require('../components/original/ActionSheetIOSExample'),
-  require('../components/original/AlertIOSExample'),
-  require('../components/original/LayoutExample')
+  require('../components/original/AlertIOSExample')
+]
+
+const STYLES = [
+  require('../components/original/LayoutEventsExample'),
+  require('../components/original/LayoutExample'),
+  require('../components/original/BorderExample')
+
 ]
 
 class OriginalView extends React.Component {
@@ -50,6 +56,7 @@ class OriginalView extends React.Component {
       <UIExplorerListBase
         components={COMPONENTS}
         apis={APIS}
+        styles={STYLES}
         searchText={Settings.get('searchText')}
         renderAdditionalView={this.renderAdditionalView.bind(this)}
         search={this.search.bind(this)}
