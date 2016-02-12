@@ -24,8 +24,8 @@ const APIS = [
 ]
 
 const STYLES = [
-  require('../components/original/LayoutEventsExample'),
   require('../components/original/LayoutExample'),
+  require('../components/original/LayoutEventsExample'),
   require('../components/original/BorderExample')
 
 ]
