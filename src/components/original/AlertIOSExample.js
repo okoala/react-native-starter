@@ -10,7 +10,7 @@ import styles from './baseStyles'
 import SimpleAlertExampleBlock from './AlertExample'
 
 export const title = 'AlertIOS'
-export const description = 'iOS alerts'
+export const description = 'iOS alerts and action sheets'
 export const examples = [
   {
     title: 'Alert',

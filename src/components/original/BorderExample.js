@@ -4,7 +4,7 @@ import React, {
 } from 'react-native'
 
 export const title = 'Border'
-export const description = '给View设置边框'
+export const description = 'Demonstrates some of the border styles available to Views.'
 export const examples = [
   {
     title: '普通',

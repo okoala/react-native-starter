@@ -20,7 +20,7 @@ const DESTRUCTIVE_INDEX = 3
 const CANCEL_INDEX = 4
 
 export const title = 'ActionSheetIOS'
-export const description = '显示 iOS\' action sheets'
+export const description = 'Interface to show iOS\' action sheets'
 export const examples = [
   {
     title: '正常',
