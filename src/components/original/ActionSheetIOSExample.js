@@ -24,18 +24,21 @@ export const description = 'Interface to show iOS\' action sheets'
 export const examples = [
   {
     title: '正常',
+    description: 'showActionSheetWithOptions',
     render () {
       return <ActionSheetExample />
     }
   },
   {
     title: '改变按钮颜色',
+    description: 'showActionSheetWithOptions({tintColor: \'green\'})',
     render () {
       return <ActionSheetTintExample />
     }
   },
   {
     title: '分享',
+    description: 'showShareActionSheetWithOptions',
     render () {
       return <ShareActionSheetExample />
     }
@@ -68,9 +71,6 @@ class ActionSheetExample extends React.Component {
             <Text>显示ActionSheet</Text>
           </View>
         </TouchableHighlight>
-        <Text style={{marginTop: 5, fontWeight: 'bold'}}>
-          点击了：<Text style={{color: 'red'}}>{this.state.clicked}</Text>
-        </Text>
       </View>
     )
   }
@@ -103,9 +103,6 @@ class ActionSheetTintExample extends React.Component {
             <Text>显示ActionSheetTint</Text>
           </View>
         </TouchableHighlight>
-        <Text style={{marginTop: 5, fontWeight: 'bold'}}>
-          点击了：<Text style={{color: 'red'}}>{this.state.clicked}</Text>
-        </Text>
       </View>
     )
   }
