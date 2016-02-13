@@ -10,19 +10,18 @@ import React, {
 
 import UIExplorerPage from '../UIExplorerPage'
 
-const ExampleList = [
-  require('./ListViewSimpleExample')
-]
-
-export const title = '<ListView>'
-export const description = 'Performat, scrollable list of data.'
-export default class ListViewExample extends React.Component {
+export const title = 'ListViewSimpleExample'
+export default class ListViewSimpleExample extends React.Component {
   constructor (props) {
     super(props)
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
-      dataSource: ds.cloneWithRows(ExampleList)
+      dataSource: ds.cloneWithRows(this._getRows({}))
     }
+  }
+
+  componentWillMount () {
+    this._pressData = {}
   }
 
   render () {
@@ -42,21 +41,35 @@ export default class ListViewExample extends React.Component {
   }
 
   _renderRow (rowData, sectionID, rowID) {
+    const rowHash = Math.abs(hashCode(rowData))
+    const imgSource = THUMB_URLS[rowHash % THUMB_URLS.length]
     return (
-      <TouchableHighlight onPress={() => this._pressRow(rowData)}>
+      <TouchableHighlight onPress={() => this._pressRow(rowID)}>
         <View style={styles.row}>
+          <Image style={styles.thumb} source={imgSource}/>
           <Text style={styles.text}>
-            {rowData.title}
+            {rowData + ' _ ' + LOREM_IPSUM.substr(0, rowHash % 301 + 10)}
           </Text>
         </View>
       </TouchableHighlight>
     )
   }
 
-  _pressRow (rowData) {
-    this.props.navigator.push({
-      title: rowData.title,
-      component: rowData.default ? rowData.default : rowData
+  _getRows (pressData) {
+    const dataBlob = []
+    for (let i = 0; i < 100; i++) {
+      let pressedText = pressData[i] ? ' (pressed)' : ''
+      dataBlob.push('Row ' + i + pressedText)
+    }
+    return dataBlob
+  }
+
+  _pressRow (rowID) {
+    this._pressData[rowID] = !this._pressData[rowID]
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(
+        this._getRows(this._pressData)
+      )
     })
   }
 }
