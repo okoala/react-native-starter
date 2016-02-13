@@ -49,13 +49,11 @@ export default class ListViewExample extends React.Component {
     const imgSource = THUMB_URLS[rowHash % THUMB_URLS.length]
     return (
       <TouchableHighlight onPress={() => this._pressRow(rowID)}>
-        <View>
-          <View style={styles.row}>
-            <Image style={styles.thumb} source={imgSource}/>
-            <Text style={styles.text}>
-              {rowData + ' _ ' + LOREM_IPSUM.substr(0, rowHash % 301 + 10)}
-            </Text>
-          </View>
+        <View style={styles.row}>
+          <Image style={styles.thumb} source={imgSource}/>
+          <Text style={styles.text}>
+            {rowData + ' _ ' + LOREM_IPSUM.substr(0, rowHash % 301 + 10)}
+          </Text>
         </View>
       </TouchableHighlight>
     )
@@ -109,6 +107,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
     padding: 10,
     backgroundColor: '#F6F6F6'
   },
