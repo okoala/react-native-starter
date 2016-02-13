@@ -117,7 +117,7 @@ class UIExplorerListBase extends React.Component {
   static makeRenderable (example) {
     return example.examples
       ? createExamplePage(null, example)
-      : example
+      : (example.default ? example.default : example)
   }
 }
 

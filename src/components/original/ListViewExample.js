@@ -10,16 +10,15 @@ import React, {
 
 import UIExplorerPage from '../UIExplorerPage'
 
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+})
+
 export const title = '<ListView>'
 export const description = 'Performat, scrollable list of data.'
-export default ListViewSimpleExample
-
-class ListViewSimpleExample extends React.Component {
+export default class ListViewExample extends React.Component {
   constructor (props) {
     super(props)
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    })
     this.state = {
       dataSource: ds.cloneWithRows(this._getRows({}))
     }
@@ -35,7 +34,6 @@ class ListViewSimpleExample extends React.Component {
         title={this.props.navigator ? null : title}
         onSpacer={true}
         onScroll={true}>
-        <Text>as</Text>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
@@ -63,7 +61,7 @@ class ListViewSimpleExample extends React.Component {
     )
   }
 
-  _gerRows (pressData) {
+  _getRows (pressData) {
     const dataBlob = []
     for (let i = 0; i < 100; i++) {
       let pressedText = pressData[i] ? ' (pressed)' : ''
