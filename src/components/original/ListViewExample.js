@@ -36,7 +36,7 @@ export default class ListViewExample extends React.Component {
         onScroll={true}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this._renderRow}
+          renderRow={this._renderRow.bind(this)}
           renderScrollComponent={props => <RecyclerViewBackedScrollView {...props} />}
           renderSeparator={(sectionID, rowID) => <View key={`${sectionID}-${rowID}`} style={styles.separator} />}
         />
@@ -74,7 +74,7 @@ export default class ListViewExample extends React.Component {
     this._pressData[rowID] = !this._pressData[rowID]
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(
-        this._genRows(this._pressData)
+        this._getRows(this._pressData)
       )
     })
   }
