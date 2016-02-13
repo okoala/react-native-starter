@@ -10,20 +10,18 @@ import React, {
 
 import UIExplorerPage from '../UIExplorerPage'
 
-const ExampleList = [
-  require('./ListViewSimpleExample'),
-  require('./ListViewGridLayoutExample')
-]
-
-export const title = '<ListView>'
-export const description = 'Performat, scrollable list of data.'
-export default class ListViewExample extends React.Component {
+export const title = 'ListViewGridLayoutExample - Flexbox grid layout.'
+export default class ListViewSimpleExample extends React.Component {
   constructor (props) {
     super(props)
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
-      dataSource: ds.cloneWithRows(ExampleList)
+      dataSource: ds.cloneWithRows(this._getRows({}))
     }
+  }
+
+  componentWillMount () {
+    this._pressData = {}
   }
 
   render () {
@@ -33,6 +31,7 @@ export default class ListViewExample extends React.Component {
         onSpacer={true}
         onScroll={true}>
         <ListView
+          contentContainerStyle={styles.list}
           dataSource={this.state.dataSource}
           renderRow={this._renderRow.bind(this)}
         />
@@ -41,21 +40,35 @@ export default class ListViewExample extends React.Component {
   }
 
   _renderRow (rowData, sectionID, rowID) {
+    const rowHash = Math.abs(hashCode(rowData))
+    const imgSource = THUMB_URLS[rowHash % THUMB_URLS.length]
     return (
-      <TouchableHighlight onPress={() => this._pressRow(rowData)}>
+      <TouchableHighlight onPress={() => this._pressRow(rowID)} underlayColor="transparent">
         <View style={styles.row}>
+          <Image style={styles.thumb} source={imgSource}/>
           <Text style={styles.text}>
-            {rowData.title}
+            {rowData}
           </Text>
         </View>
       </TouchableHighlight>
     )
   }
 
-  _pressRow (rowData) {
-    this.props.navigator.push({
-      title: rowData.title,
-      component: rowData.default ? rowData.default : rowData
+  _getRows (pressData) {
+    const dataBlob = []
+    for (let i = 0; i < 100; i++) {
+      let pressedText = pressData[i] ? ' (X)' : ''
+      dataBlob.push('Cell ' + i + pressedText)
+    }
+    return dataBlob
+  }
+
+  _pressRow (rowID) {
+    this._pressData[rowID] = !this._pressData[rowID]
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(
+        this._getRows(this._pressData)
+      )
     })
   }
 }
@@ -86,22 +99,30 @@ const hashCode = function (str) {
 }
 
 const styles = StyleSheet.create({
-  row: {
+  list: {
+    justifyContent: 'space-around',
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#F6F6F6'
+    flexWrap: 'wrap'
   },
-  separator: {
-    height: 1,
-    backgroundColor: '#CCCCCC'
+  row: {
+    justifyContent: 'center',
+    padding: 5,
+    margin: 3,
+    width: 100,
+    height: 100,
+    backgroundColor: '#F6F6F6',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#CCC'
   },
   thumb: {
     width: 64,
     height: 64
   },
   text: {
-    flex: 1
+    flex: 1,
+    marginTop: 5,
+    fontWeight: 'bold'
   }
 })
