@@ -1,9 +1,11 @@
 import React, {
+  View,
+  Text,
   StyleSheet,
   NavigatorIOS,
   TabBarIOS,
-  Text,
-  View
+  ToolbarAndroid,
+  Platform
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -16,6 +18,33 @@ import OriginalView from './Original'
 import CommunityView from './Community'
 import DribbbleView from './Dribbble'
 import CNodeView from './CNode'
+
+const navbars = [
+  {
+    title: '原生组件',
+    icon: 'pizza',
+    name: 'original',
+    view: OriginalView
+  },
+  {
+    title: '社区组件',
+    icon: 'coffee',
+    name: 'community',
+    view: CommunityView
+  },
+  {
+    title: 'Dribble',
+    icon: 'social-dribbble-outline',
+    name: 'dribbble',
+    view: DribbbleView
+  },
+  {
+    title: 'CNode',
+    icon: 'social-nodejs',
+    name: 'cnodejs',
+    view: CNodeView
+  }
+]
 
 class App extends React.Component {
   constructor (props) {
@@ -49,14 +78,24 @@ class App extends React.Component {
   }
 
   render () {
-    return (
-      <TabBarIOS tintColor={"#ea4c89"}>
-        {this._renderTabBarItem("原生组件", "pizza", "original", OriginalView)}
-        {this._renderTabBarItem("社区组件", "coffee", "community", CommunityView)}
-        {this._renderTabBarItem("Dribble", "social-dribbble-outline", "dribbble", DribbbleView)}
-        {this._renderTabBarItem("CNode", "social-nodejs", "cnodejs", CNodeView)}
-      </TabBarIOS>
-    )
+    if (Platform.OS === 'android') {
+      return (
+        <ToolbarAndroid
+          actions={[{title: 'fake', show: 'always'}]}
+          navIcon={require('image!ic_menu_black_24dp')}
+          style={styles.toolbar}
+          title="Toolbar"
+        />
+      )
+    } else {
+      return (
+        <TabBarIOS tintColor={"#ea4c89"}>
+          {navbars.map(item => {
+            return this._renderTabBarItem(item.title, item.icon, item.name, item.view)
+          })}
+        </TabBarIOS>
+      )
+    }
   }
 }
 
@@ -71,6 +110,10 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex: 1
+  },
+  toolbar: {
+    backgroundColor: '#e9eaed',
+    height: 56,
   }
 })
 
