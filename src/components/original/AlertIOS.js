@@ -7,7 +7,7 @@ import React, {
 } from 'react-native'
 
 import styles from './baseStyles'
-import SimpleAlertExampleBlock from './AlertExample'
+import SimpleAlertExampleBlock from './Alert'
 
 export const title = 'AlertIOS'
 export const description = 'iOS alerts and action sheets'

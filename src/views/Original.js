@@ -12,21 +12,21 @@ const isIOS = Platform.OS === "ios"
 
 const COMPONENTS = [
   isIOS
-    ? require('../components/original/DatePickerIOSExample')
-    : require('../components/original/DatePickerAndroidExample'),
+    ? require('../components/original/DatePickerIOS')
+    : require('../components/original/DatePickerAndroid'),
 
-  require('../components/original/ListViewExample')
+  require('../components/original/ListView')
 ]
 
 const APIS = [
-  require('../components/original/ActionSheetIOSExample'),
-  require('../components/original/AlertIOSExample')
+  require('../components/original/ActionSheetIOS'),
+  require('../components/original/AlertIOS')
 ]
 
 const STYLES = [
-  require('../components/original/LayoutExample'),
-  require('../components/original/LayoutEventsExample'),
-  require('../components/original/BorderExample')
+  require('../components/original/Layout'),
+  require('../components/original/LayoutEvents'),
+  require('../components/original/Border')
 
 ]
 
