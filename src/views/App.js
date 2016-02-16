@@ -5,6 +5,7 @@ import React, {
   NavigatorIOS,
   TabBarIOS,
   ToolbarAndroid,
+  DrawerLayoutAndroid,
   Platform
 } from 'react-native'
 
@@ -77,15 +78,36 @@ class App extends React.Component {
     )
   }
 
+  _openDrawer () {
+    console.log('true')
+    this.refs['DRAWER'].openDrawer()
+  }
+
   render () {
+    const navigationView = (
+      <View style={{flex: 1, backgroundColor: '#fff'}}>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      </View>
+    )
+
     if (Platform.OS === 'android') {
       return (
-        <ToolbarAndroid
-          actions={[{title: 'fake', show: 'always'}]}
-          navIcon={require('image!ic_menu_black_24dp')}
-          style={styles.toolbar}
-          title="Toolbar"
-        />
+          <DrawerLayoutAndroid
+            ref={'DRAWER'}
+            drawerWidth={300}
+            drawerPosition={DrawerLayoutAndroid.positions.Left}
+            keyboardDismissMode="on-drag"
+            renderNavigationView={() => navigationView}>
+            <View style={{flex: 1, flexDirection: 'column', backgroundColor: '#FAFAFA'}}>
+              <ToolbarAndroid
+                actions={[{title: 'fakes', show: 'always'}]}
+                navIcon={require('image!ic_menu_black_24dp')}
+                onIconClicked={this._openDrawer.bind(this)}
+                style={styles.toolbar}
+                title="Toolbar"
+              />
+            </View>
+          </DrawerLayoutAndroid>
       )
     } else {
       return (
