@@ -7,6 +7,7 @@
     "web-bundle": "webpack --config web/webpack.config.js --colors"
   },
   "dependencies": {
+    "autobind-decorator": "^1.3.3",
     "bluebird": "^3.1.2",
     "immutable": "^3.7.6",
     "key-mirror": "^1.0.1",
@@ -29,6 +30,8 @@
     "react-native": "^0.20.0-rc1",
     "react-native-blur": "^0.7.9",
     "react-native-htmlview": "^0.2.0",
+    "react-native-localization": "^0.1.11",
+    "react-native-material-design": "^0.3.2",
     "react-native-parallax-view": "^2.0.3",
     "react-native-quick-actions": "^0.1.0",
     "react-native-vector-icons": "^1.2.0",
