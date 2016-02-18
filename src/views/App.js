@@ -52,7 +52,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      selectedTab: "original"
+      selectedTab: 'original'
     }
   }
 
@@ -96,7 +96,7 @@ class App extends React.Component {
             ref={'DRAWER'}
             drawerWidth={300}
             drawerPosition={DrawerLayoutAndroid.positions.Left}
-            keyboardDismissMode="on-drag"
+            keyboardDismissMode='on-drag'
             renderNavigationView={() => navigationView}>
             <View style={{flex: 1, flexDirection: 'column', backgroundColor: '#FAFAFA'}}>
               <ToolbarAndroid
@@ -104,7 +104,7 @@ class App extends React.Component {
                 navIcon={require('image!ic_menu_black_24dp')}
                 onIconClicked={this._openDrawer.bind(this)}
                 style={styles.toolbar}
-                title="Toolbar"
+                title='Toolbar'
               />
             </View>
           </DrawerLayoutAndroid>
@@ -112,7 +112,7 @@ class App extends React.Component {
     } else {
       return (
         <TabBarIOS tintColor={"#ea4c89"}>
-          {navbars.map(item => {
+          {navbars.map((item) => {
             return this._renderTabBarItem(item.title, item.icon, item.name, item.view)
           })}
         </TabBarIOS>
@@ -124,10 +124,10 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   tabContent: {
     flex: 1,
-    alignItems: "center"
+    alignItems: 'center'
   },
   tabText: {
-    color: "white",
+    color: 'white',
     margin: 50
   },
   wrapper: {
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   toolbar: {
     backgroundColor: '#e9eaed',
-    height: 56,
+    height: 56
   }
 })
 
