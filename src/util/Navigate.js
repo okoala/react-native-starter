@@ -5,7 +5,7 @@ import {
 let routes = null
 
 try {
-  routes = require('../route').default
+  routes = require('../route')
 } catch (e) {}
 
 export default class Navigate {

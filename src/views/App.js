@@ -75,10 +75,6 @@ class App extends React.Component {
     )
   }
 
-  _openDrawer () {
-    this.refs['DRAWER'].openDrawer()
-  }
-
   render () {
     const { drawer, navigator } = this.state
 

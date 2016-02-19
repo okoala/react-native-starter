@@ -1,26 +1,25 @@
-export default {
-  original: {
-    initialRoute: true,
+export const original = {
+  initialRoute: true,
 
-    title: '原生组件',
-    icon: 'pizza',
-    view: require('../views/Original').default
-  },
-  community: {
-    title: '社区组件',
-    icon: 'coffee',
-    view: require('../views/Community').default
-  },
-  dribbble: {
-    title: 'Dribble',
-    icon: 'social-dribbble-outline',
-    name: 'dribbble',
-    view: require('../views/Dribbble').default
-  },
-  cnodejs: {
-    title: 'CNode',
-    icon: 'social-nodejs',
-    name: 'cnodejs',
-    view: require('../views/CNode').default
-  }
+  title: '原生组件',
+  icon: 'label',
+  component: require('../views/Original').default
+}
+
+export const community = {
+  title: '社区组件',
+  icon: 'label',
+  component: require('../views/Community').default
+}
+
+export const dribbble = {
+  title: 'Dribble',
+  icon: 'label',
+  component: require('../views/Dribbble').default
+}
+
+export const cnodejs = {
+  title: 'CNode',
+  icon: 'label',
+  component: require('../views/CNode').default
 }

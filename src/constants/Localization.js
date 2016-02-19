@@ -20,7 +20,7 @@ const strings = new LocalizedStrings({
     updateDialogOptionalInstall: 'Install',
     updateDialogOptionalUpdateMessage: 'An update is available. Would you like to install it?'
   },
-  'zh-Hans': {
+  zh: {
     appName: '名称',
     privacyPolicyUrl: '隐私权政策 URL',
 
