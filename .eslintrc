@@ -75,6 +75,7 @@
   },
 
   "rules": {
+    "arrow-parens": 0,
     "jsx-quotes": 1,
     // React
     "react/display-name": 0,
