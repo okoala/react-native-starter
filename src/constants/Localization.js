@@ -1,6 +1,6 @@
 import LocalizedStrings from 'react-native-localization'
 
-export default new LocalizedStrings({
+const strings = new LocalizedStrings({
   en: {
     appName: 'Name',
     privacyPolicyUrl: 'Privacy Policy URL',
@@ -40,3 +40,5 @@ export default new LocalizedStrings({
     updateDialogOptionalUpdateMessage: '有新的版本，你想要安装吗？'
   }
 })
+
+export default strings
