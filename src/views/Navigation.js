@@ -8,7 +8,6 @@ import React, {
 import {
   Avatar,
   Drawer,
-  Divider,
   COLOR,
   TYPO
 } from 'react-native-material-design'

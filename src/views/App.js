@@ -1,11 +1,9 @@
 import React, {
   View,
-  Text,
   StyleSheet,
   Navigator,
   NavigatorIOS,
   TabBarIOS,
-  ToolbarAndroid,
   DrawerLayoutAndroid,
   Platform
 } from 'react-native'
@@ -92,14 +90,29 @@ class App extends React.Component {
             drawerPosition={DrawerLayoutAndroid.positions.Left}
             renderNavigationView={() => {
               if (drawer && navigator) {
-                return React.createElement(Navigation)
+                return <Navigation/>
               }
               return null
             }}>
             {drawer &&
               <Navigator
+                ref={(navigator) => { !this.state.navigator ? this.setNavigator(navigator) : null }}
                 initialRoute={Navigate.getInitialRoute()}
                 navigationBar={<Toolbar onIconPress={drawer.openDrawer} />}
+                configureScene={() => {
+                  return Navigator.SceneConfigs.FadeAndroid
+                }}
+                renderScene={(route) => {
+                  if (this.state.navigator && route.component) {
+                    return (
+                      <View
+                        style={styles.scene}
+                        showsVerticalScrollIndicator={false}>
+                        <route.component title={route.title} path={route.path} {...route.props} />
+                      </View>
+                    )
+                  }
+                }}
               />
             }
           </DrawerLayoutAndroid>
