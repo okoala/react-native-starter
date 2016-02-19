@@ -5,6 +5,13 @@ export default new LocalizedStrings({
     appName: 'Name',
     privacyPolicyUrl: 'Privacy Policy URL',
 
+    home: 'home',
+
+    originalView: 'original',
+    communityView: 'community',
+    dribbbleView: 'dribbble',
+    cnodejsView: 'cnodejs',
+
     updateDialogTitle: 'Update available',
     updateDialogDescriptionPrefix: ' Description: ',
     updateDialogMandatoryContinue: 'Continue',
@@ -16,6 +23,13 @@ export default new LocalizedStrings({
   'zh-Hans': {
     appName: '名称',
     privacyPolicyUrl: '隐私权政策 URL',
+
+    home: '首页',
+
+    originalView: '原生组件',
+    communityView: '社区组件',
+    dribbbleView: 'Dribble',
+    cnodejsView: 'CNode',
 
     updateDialogTitle: '有更新',
     updateDialogDescriptionPrefix: ' 更新内容：',

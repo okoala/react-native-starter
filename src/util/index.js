@@ -1,6 +1,7 @@
 
 export * from './image'
 export * from './lang'
+export * from './system'
 
 export function createReducer (initialState, reducerMap) {
   return (state = initialState, action) => {

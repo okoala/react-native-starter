@@ -20,12 +20,12 @@ class Loading extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    flexDirection: "column",
-    justifyContent: "center"
+    backgroundColor: 'white',
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
   centerText: {
-    alignItems: "center"
+    alignItems: 'center'
   },
   spinner: {
     width: 50

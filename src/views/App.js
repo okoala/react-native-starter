@@ -2,6 +2,7 @@ import React, {
   View,
   Text,
   StyleSheet,
+  Navigator,
   NavigatorIOS,
   TabBarIOS,
   ToolbarAndroid,
@@ -9,51 +10,49 @@ import React, {
   Platform
 } from 'react-native'
 
+import Toolbar from '../components/Toolbar'
+
+import autobind from 'autobind-decorator'
 import Icon from 'react-native-vector-icons/Ionicons'
+import Navigate from '../util/Navigate'
+import Navigation from './Navigation'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../store/actions'
 
-import OriginalView from './Original'
-import CommunityView from './Community'
-import DribbbleView from './Dribbble'
-import CNodeView from './CNode'
+const navbars = []
 
-const navbars = [
-  {
-    title: '原生组件',
-    icon: 'pizza',
-    name: 'original',
-    view: OriginalView
-  },
-  {
-    title: '社区组件',
-    icon: 'coffee',
-    name: 'community',
-    view: CommunityView
-  },
-  {
-    title: 'Dribble',
-    icon: 'social-dribbble-outline',
-    name: 'dribbble',
-    view: DribbbleView
-  },
-  {
-    title: 'CNode',
-    icon: 'social-nodejs',
-    name: 'cnodejs',
-    view: CNodeView
-  }
-]
-
+@autobind
 class App extends React.Component {
+  static childContextTypes = {
+    drawer: React.PropTypes.object,
+    navigator: React.PropTypes.object
+  };
+
   constructor (props) {
     super(props)
 
     this.state = {
+      drawer: null,
+      navigator: null,
       selectedTab: 'original'
     }
+  }
+
+  getChildContext () {
+    return {
+      drawer: this.state.drawer,
+      navigator: this.state.navigator
+    }
+  }
+
+  setDrawer (drawer) {
+    this.setState({drawer})
+  }
+
+  setNavigator (navigator) {
+    this.setState({navigator: new Navigate(navigator)})
   }
 
   _renderTabBarItem (title, icon, name, view) {
@@ -79,34 +78,30 @@ class App extends React.Component {
   }
 
   _openDrawer () {
-    console.log('true')
     this.refs['DRAWER'].openDrawer()
   }
 
   render () {
-    const navigationView = (
-      <View style={{flex: 1, backgroundColor: '#fff'}}>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      </View>
-    )
+    const { drawer, navigator } = this.state
 
     if (Platform.OS === 'android') {
       return (
           <DrawerLayoutAndroid
-            ref={'DRAWER'}
+            ref={(drawer) => { !this.state.drawer ? this.setDrawer(drawer) : null }}
             drawerWidth={300}
             drawerPosition={DrawerLayoutAndroid.positions.Left}
-            keyboardDismissMode='on-drag'
-            renderNavigationView={() => navigationView}>
-            <View style={{flex: 1, flexDirection: 'column', backgroundColor: '#FAFAFA'}}>
-              <ToolbarAndroid
-                actions={[{title: 'fakes', show: 'always'}]}
-                navIcon={require('image!ic_menu_black_24dp')}
-                onIconClicked={this._openDrawer.bind(this)}
-                style={styles.toolbar}
-                title='Toolbar'
+            renderNavigationView={() => {
+              if (drawer && navigator) {
+                return React.createElement(Navigation)
+              }
+              return null
+            }}>
+            {drawer &&
+              <Navigator
+                initialRoute={Navigate.getInitialRoute()}
+                navigationBar={<Toolbar onIconPress={drawer.openDrawer} />}
               />
-            </View>
+            }
           </DrawerLayoutAndroid>
       )
     } else {
