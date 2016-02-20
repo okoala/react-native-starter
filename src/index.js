@@ -17,7 +17,7 @@ import { setPlatform, setVersion, setStore } from './store/actions'
 
 export default function native (platform) {
   const RNStarter = React.createClass({
-    render() {
+    render () {
       store.dispatch(setPlatform(platform))
       store.dispatch(setVersion(VERSION))
       store.dispatch(setStore(store))
