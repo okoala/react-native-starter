@@ -27,7 +27,7 @@ export default class Navigation extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      route: null
+      route: 'original'
     }
   }
 
@@ -53,7 +53,6 @@ export default class Navigation extends React.Component {
         </Drawer.Header>
 
         <Drawer.Section
-          title='Components'
           items={[
             {
               value: lang.originalView,

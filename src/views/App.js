@@ -11,15 +11,14 @@ import React, {
 import Toolbar from '../components/Toolbar'
 
 import autobind from 'autobind-decorator'
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import Navigate from '../util/Navigate'
 import Navigation from './Navigation'
+import { original, community, dribbble, cnodejs } from '../route'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../store/actions'
-
-const navbars = []
 
 @autobind
 class App extends React.Component {
@@ -116,9 +115,10 @@ class App extends React.Component {
     } else {
       return (
         <TabBarIOS tintColor={"#ea4c89"}>
-          {navbars.map((item) => {
-            return this._renderTabBarItem(item.title, item.icon, item.name, item.view)
-          })}
+          {this._renderTabBarItem(original.title, original.icon, 'original', original.component)}
+          {this._renderTabBarItem(community.title, community.icon, 'community', community.component)}
+          {this._renderTabBarItem(dribbble.title, dribbble.icon, 'dribbble', dribbble.component)}
+          {this._renderTabBarItem(cnodejs.title, cnodejs.icon, 'cnodejs', cnodejs.component)}
         </TabBarIOS>
       )
     }

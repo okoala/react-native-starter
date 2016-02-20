@@ -7,10 +7,10 @@ const strings = new LocalizedStrings({
 
     home: 'home',
 
-    originalView: 'original',
-    communityView: 'community',
-    dribbbleView: 'dribbble',
-    cnodejsView: 'cnodejs',
+    originalView: 'Original',
+    communityView: 'Community',
+    dribbbleView: 'Dribbble',
+    cnodejsView: 'CNodejs',
 
     updateDialogTitle: 'Update available',
     updateDialogDescriptionPrefix: ' Description: ',
