@@ -19,7 +19,7 @@
 
 ## 效果
 
-###### IOS
+###### iOS
 
 ![](http://i12.tietuku.com/557aac0ec5002602.jpg)
 
