@@ -93,7 +93,6 @@
     "react/no-set-state": 0,
     "react/no-did-mount-set-state": 1,
     "react/no-did-update-set-state": 1,
-    "react/no-multi-comp": 1,
     "react/no-unknown-property": 1,
     "react/require-extension": 1,
     "react/self-closing-comp": 1,

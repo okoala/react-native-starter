@@ -1,5 +1,4 @@
 import React, {
-  StyleSheet,
   View,
   Text,
   TouchableHighlight,
@@ -68,8 +67,6 @@ class Prompt extends React.Component {
             <Text>标题、自定义按钮</Text>
           </View>
         </TouchableHighlight>
-
-
       </View>
     )
   }
