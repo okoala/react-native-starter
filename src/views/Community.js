@@ -18,13 +18,13 @@ class CommunityView extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    flexDirection: "column",
-    justifyContent: "center"
+    backgroundColor: 'white',
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
   separator: {
     height: 1,
-    backgroundColor: "#eeeeee"
+    backgroundColor: '#eeeeee'
   },
   scrollSpinner: {
     marginVertical: 20

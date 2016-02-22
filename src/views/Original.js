@@ -11,10 +11,10 @@ import UIExplorerListBase from '../components/UIExplorerListBase'
 const isIOS = Platform.OS === "ios"
 
 const COMPONENTS = [
+  require('../components/original/ActivityIndicatorIOS'),
   isIOS
     ? require('../components/original/DatePickerIOS')
     : require('../components/original/DatePickerAndroid'),
-
   require('../components/original/ListView')
 ]
 
