@@ -1,14 +1,12 @@
 import React, {
   StyleSheet,
   Settings,
-  Text,
-  View,
-  Platform,
+  Platform
 } from 'react-native'
 
 import UIExplorerListBase from '../components/UIExplorerListBase'
 
-const isIOS = Platform.OS === "ios"
+const isIOS = Platform.OS === 'ios'
 
 const COMPONENTS = [
   require('../components/original/ActivityIndicatorIOS'),
@@ -16,6 +14,7 @@ const COMPONENTS = [
     ? require('../components/original/DatePickerIOS')
     : require('../components/original/DatePickerAndroid'),
   require('../components/original/Image'),
+  require('../components/original/Modal'),
   require('../components/original/ListView')
 ]
 
