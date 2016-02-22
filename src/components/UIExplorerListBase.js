@@ -40,7 +40,7 @@ class UIExplorerListBase extends React.Component {
           clearButtonMode='always'
           onChangeText={this.search.bind(this)}
           placeholder='搜索组件...'
-          style={[styles.searchTextInput, searchTextInputStyle]}
+          style={[styles.searchTextInput]}
           testID='explorer_search'
           value={this.state.searchText}
         />
@@ -50,9 +50,11 @@ class UIExplorerListBase extends React.Component {
 
   _renderSectionHeader (data, section) {
     return (
-      <Text style={styles.sectionHeader}>
-        {section.toUpperCase()}
-      </Text>
+      <View style={styles.sectionHeader}>
+        <Text style={styles.sectionHeaderText}>
+          {section.toUpperCase()}
+        </Text>
+      </View>
     )
   }
 
@@ -129,7 +131,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#eeeeee'
   },
   sectionHeader: {
-    padding: 5,
+    padding: 5
+  },
+  sectionHeaderText: {
     fontWeight: '500',
     fontSize: 11
   },
@@ -169,7 +173,9 @@ const styles = StyleSheet.create({
     borderColor: '#cccccc',
     borderRadius: 3,
     borderWidth: 1,
-    paddingLeft: 8
+    paddingLeft: 8,
+    height: 30,
+    fontSize: 12
   }
 })
 
