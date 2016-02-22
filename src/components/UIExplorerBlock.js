@@ -21,10 +21,11 @@ class UIExplorerBlock extends React.Component {
   render () {
     let description
     if (this.props.description) {
-      description =
+      description = (
         <Text style={styles.descText}>
           {this.props.description}
         </Text>
+      )
     }
 
     return (
@@ -63,11 +64,15 @@ const styles = StyleSheet.create({
     paddingVertical: 5
   },
   titleText: {
-    fontSize: 14,
+    color: '#ea4c89',
+    fontSize: 15,
     fontWeight: '500'
   },
   descText: {
-    fontSize: 14
+    fontSize: 14,
+    marginTop: 5,
+    marginBottom: 5,
+    color: '#444444'
   },
   children: {
     margin: 10
