@@ -19,7 +19,9 @@
 
 ## 效果
 
-![](http://i4.tietuku.com/4aeb75a6a826655a.jpg)
+###### IOS
+
+![](http://i12.tietuku.com/557aac0ec5002602.jpg)
 
 ## Run
 
