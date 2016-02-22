@@ -47,11 +47,20 @@
     npm cache clean && npm install
   ```
 
-  如果是下面的
-
-  Error: Naming collision detected: /Users/koalahuang/Code/RNStarter/node_modules/react-web/node_modules/fbjs/flow/include/camelize.js collides with /Users/koalahuang/Code/RNStarter/node_modules/fbjs/lib/camelize.js
-
-  则
+  如果是`string.contains is not a function`
+  到 `node_modules/react-native/packager/react-packager/src/Resolver/polyfills/String.prototype.es6.js`
+  添加如下代码
   ```
-  rm -rf node_modules/react-web/node_modules/fbjs
+  if (!String.prototype.contains) {
+    String.prototype.contains = function(search) {
+      'use strict';
+      if (this == null) {
+        throw TypeError();
+      }
+      var string = String(this);
+      var pos = arguments.length > 1 ?
+        (Number(arguments[1]) || 0) : 0;
+      return string.indexOf(String(search), pos) !== -1;
+    }
+  }
   ```
