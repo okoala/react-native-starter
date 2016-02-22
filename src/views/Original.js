@@ -15,6 +15,7 @@ const COMPONENTS = [
   isIOS
     ? require('../components/original/DatePickerIOS')
     : require('../components/original/DatePickerAndroid'),
+  require('../components/original/Image'),
   require('../components/original/ListView')
 ]
 
