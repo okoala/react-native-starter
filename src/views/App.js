@@ -69,6 +69,7 @@ class App extends React.Component {
             component: view,
             title: title
           }}
+          tintColor='#ea4c89'
         />
       </Icon.TabBarItem>
     )
@@ -114,7 +115,7 @@ class App extends React.Component {
       )
     } else {
       return (
-        <TabBarIOS tintColor={"#ea4c89"}>
+        <TabBarIOS tintColor={'#ea4c89'}>
           {this._renderTabBarItem(original.title, original.icon, 'original', original.component)}
           {this._renderTabBarItem(community.title, community.icon, 'community', community.component)}
           {this._renderTabBarItem(dribbble.title, dribbble.icon, 'dribbble', dribbble.component)}

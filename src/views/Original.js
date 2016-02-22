@@ -9,14 +9,26 @@ import UIExplorerListBase from '../components/UIExplorerListBase'
 const isIOS = Platform.OS === 'ios'
 
 const COMPONENTS = [
-  require('../components/original/ActivityIndicatorIOS'),
-  isIOS
-    ? require('../components/original/DatePickerIOS')
-    : require('../components/original/DatePickerAndroid'),
   require('../components/original/Image'),
   require('../components/original/Modal'),
   require('../components/original/ListView')
 ]
+
+if (isIOS) {
+  [
+    require('../components/original/ActivityIndicatorIOS'),
+    require('../components/original/DatePickerIOS'),
+    require('../components/original/NavigatorIOS')
+  ].map(item => {
+    COMPONENTS.push(item)
+  })
+} else {
+  [
+    require('../components/original/DatePickerAndroid')
+  ].map(item => {
+    COMPONENTS.push(item)
+  })
+}
 
 const APIS = [
   require('../components/original/ActionSheetIOS'),

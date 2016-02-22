@@ -35,13 +35,13 @@ class UIExplorerListBase extends React.Component {
     return (
       <View style={styles.searchRow}>
         <TextInput
-          autoCapitalize="none"
+          autoCapitalize='none'
           autoCorrent={false}
-          clearButtonMode="always"
+          clearButtonMode='always'
           onChangeText={this.search.bind(this)}
-          placeholder="搜索组件..."
+          placeholder='搜索组件...'
           style={[styles.searchTextInput, searchTextInputStyle]}
-          testID="explorer_search"
+          testID='explorer_search'
           value={this.state.searchText}
         />
       </View>
@@ -108,7 +108,7 @@ class UIExplorerListBase extends React.Component {
           renderSectionHeader={this._renderSectionHeader}
           keyboardShouldPersistTaps={true}
           automaticallyAdjustContentInsets={false}
-          keyboardDismissMode="on-drag"
+          keyboardDismissMode='on-drag'
         />
       </View>
     )
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     marginLeft: 15
   },
   rowTitleText: {
+    color: '#ea4c89',
     fontSize: 17,
     fontWeight: '500'
   },
