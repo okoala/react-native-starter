@@ -1,6 +1,5 @@
 import React, {
   Alert,
-  StyleSheet,
   Text,
   TouchableHighlight,
   View

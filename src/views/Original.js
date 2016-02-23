@@ -16,7 +16,8 @@ const COMPONENTS = [
 
 const APIS = [
   require('../components/original/NetInfo'),
-  require('../components/original/Linking')
+  require('../components/original/Linking'),
+  require('../components/original/PanResponder')
 ]
 
 if (isIOS) {
