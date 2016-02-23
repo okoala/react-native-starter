@@ -14,35 +14,38 @@ const COMPONENTS = [
   require('../components/original/ListView')
 ]
 
-const COMPONENTS_IOS = [
-  require('../components/original/ActivityIndicatorIOS'),
-  require('../components/original/DatePickerIOS'),
-  require('../components/original/NavigatorIOS')
-]
-
-const COMPONENTS_ANDROID = [
-  require('../components/original/DatePickerAndroid')
-]
-
 const APIS = [
   require('../components/original/NetInfo')
 ]
 
-const APIS_IOS = [
-  require('../components/original/ActionSheetIOS'),
-  require('../components/original/AlertIOS')
-]
-
-const APIS_ANDROID = [
-  require('../components/original/DatePickerAndroid')
-]
-
 if (isIOS) {
-  APIS_IOS.map(item => APIS.push(item))
-  COMPONENTS_IOS.map(item => COMPONENTS.push(item))
+  // iOS 专属Component
+  [
+    require('../components/original/ActivityIndicatorIOS'),
+    require('../components/original/DatePickerIOS'),
+    require('../components/original/NavigatorIOS')
+  ]
+  .map(item => COMPONENTS.push(item));
+
+  // iOS 专属Api
+  [
+    require('../components/original/ActionSheetIOS'),
+    require('../components/original/AlertIOS'),
+    require('../components/original/StatusBarIOS')
+  ]
+  .map(item => APIS.push(item))
 } else {
-  APIS_ANDROID.map(item => APIS.push(item))
-  COMPONENTS_ANDROID.map(item => COMPONENTS.push(item))
+  // Android 专属Component
+  [
+    require('../components/original/DatePickerAndroid')
+  ]
+  .map(item => COMPONENTS.push(item))
+
+  // Android 专属Api
+  // [
+  //   require('../components/original/DatePickerAndroid')
+  // ]
+  // .map(item => APIS.push(item))
 }
 
 const STYLES = [
