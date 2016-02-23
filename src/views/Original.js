@@ -15,7 +15,8 @@ const COMPONENTS = [
 ]
 
 const APIS = [
-  require('../components/original/NetInfo')
+  require('../components/original/NetInfo'),
+  require('../components/original/Linking')
 ]
 
 if (isIOS) {
