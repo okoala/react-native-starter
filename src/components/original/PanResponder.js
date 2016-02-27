@@ -1,6 +1,7 @@
 import React, {
   PanResponder,
   StyleSheet,
+  ScrollView,
   View,
   Text
 } from 'react-native'
@@ -38,24 +39,42 @@ const text = `
     numberActiveTouches - 当前在屏幕上的有效触摸点的数量
 
   PanResponder.create({
-    // 要求成为响应者
-    onMoveShouldSetPanResponder,
-    onMoveShouldSetPanResponderCapture,
+    // （触摸开始时）是否要开始响应手势
     onStartShouldSetPanResponder,
+
+    // （触摸开始时）是否使用捕获（默认是冒泡）
     onStartShouldSetPanResponderCapture,
-    onPanResponderReject,
-    // 开始手势操作。给用户一些视觉反馈，让他们知道发生了什么事情！
+
+    // （触摸移动时）是否要开始响应手势
+    onMoveShouldSetPanResponder,
+
+    // （触摸移动时）是否使用捕获（默认是冒泡）
+    onMoveShouldSetPanResponderCapture,
+
+    // 被激活
     onPanResponderGrant,
+
+    // 被拒绝（已被其他Responder占用且不同意释放）
+    onPanResponderReject,
+
+    // 开始
     onPanResponderStart,
+
+    // 结束
     onPanResponderEnd,
-    // 用户放开了所有的触摸点，且此时视图已经成为了响应者。
-    // 一般来说这意味着一个手势操作已经成功完成。
+
+    // 被释放 （手指抬出或移出屏幕了）
     onPanResponderRelease,
-    // 最近一次的移动距离为gestureState.move{X,Y}
+
+    // 移动中
     onPanResponderMove,
+
     // 另一个组件已经成为了新的响应者，所以当前手势将被取消。
     onPanResponderTerminate,
+
+    // 收到另一个Responder的请求，是否同意释放
     onPanResponderTerminationRequest,
+
     // 返回一个布尔值，决定当前组件是否应该阻止原生组件成为JS响应者
     // 默认返回true。目前暂时只支持android。
     onShouldBlockNativeResponder
@@ -102,9 +121,9 @@ export default class PanResponderExample extends React.Component {
     return (
       <View
         style={styles.container}>
-        <View style={styles.text}>
+        <ScrollView style={styles.text}>
           <Text>{text}</Text>
-        </View>
+        </ScrollView>
         <View
           ref={(circle) => {
             this.circle = circle
