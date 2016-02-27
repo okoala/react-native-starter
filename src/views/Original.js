@@ -33,7 +33,8 @@ if (isIOS) {
   [
     require('../components/original/ActionSheetIOS'),
     require('../components/original/AlertIOS'),
-    require('../components/original/StatusBarIOS')
+    require('../components/original/StatusBarIOS'),
+    require('../components/original/VibrationIOS')
   ]
   .map(item => APIS.push(item))
 } else {
